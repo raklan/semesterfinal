@@ -5,7 +5,7 @@ import java.util.Scanner;
  * Write a description of class WeakestLink here.
  * 
  * @author Ryan Lake and Chris Do 
- * @version 1.0
+ * @version 1.1
  */
 public  class WeakestLink
 {
