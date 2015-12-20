@@ -59,10 +59,10 @@ public  class WeakestLink {
 
 
 
-        int p2 = gen.nextInt(2);
-        int p3 = gen.nextInt(2);
-        int p4 = gen.nextInt(2);
-        int p5 = gen.nextInt(2);
+        int p2right = 0;
+        int p3right = 0;
+        int p4right = 0;
+        int p5right = 0;
 
         int nump1right = 0;
         int nump2right = 0;
@@ -97,6 +97,59 @@ public  class WeakestLink {
 
 
         } while (tries > 0 && right == false);
+        if (tries == 0)
+        {
+            pointsPossible = 10;
+        }
+
+         //P2 Right?-------------------------------------------------
+
+            if (p2out == false) {
+                p2right = gen.nextInt(2);
+                if (p2right == 0) {
+                    System.out.println(p2name + " got the question wrong.");
+                    pointsPossible = 10;
+                } else if (p2right == 1) {
+                    System.out.println(p2name + " got the question right!");
+                    pointsPossible = pointsPossible + 10;
+                }
+            }
+
+            //P3 Right?--------------------------------------------
+            if (p3out == false) {
+                p3right = gen.nextInt(2);
+                if (p3right == 0) {
+                    System.out.println(p3name + " got the question wrong.");
+                    pointsPossible = 10;
+                } else if (p3right == 1) {
+                    System.out.println(p3name + " got the question right!");
+                    pointsPossible = pointsPossible + 10;
+                }
+            }
+
+            //P4 Right?----------------------------------------------
+            if (p4out == false) {
+                p4right = gen.nextInt(2);
+                if (p4right == 0) {
+                    System.out.println(p4name + " got the question wrong.");
+                    pointsPossible = 10;
+                } else if (p4right == 1) {
+                    System.out.println(p4name + " got the question right!");
+                    pointsPossible = pointsPossible + 10;
+                }
+            }
+
+            //P5 Right?------------------------------------------------
+            if (p5out == false) {
+                p5right = gen.nextInt(2);
+                if (p5right == 0) {
+                    System.out.println(p5name + " got the question wrong.");
+                    pointsPossible = 10;
+                } else if (p5right == 1) {
+                    System.out.println(p5name + " got the question right!");
+                    pointsPossible = pointsPossible + 10;
+                }
+            }
 
 
     }
