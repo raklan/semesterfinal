@@ -57,7 +57,13 @@ public  class WeakestLink {
         int x = gen.nextInt(100) + 1;
         int y = gen.nextInt(100) + 1;
 
+        int vote1 = 0;
+        int vote2 = 0;
+        int vote3 = 0;
+        int vote4 = 0;
+        int vote5 = 0;
 
+        boolean voted = false;
 
         int p2right = 0;
         int p3right = 0;
@@ -83,76 +89,79 @@ public  class WeakestLink {
         do {
             System.out.println("What is " + x + " plus " + y + "?");
             answer = scan.nextLine();
-            if (answer.equals(x + y))
-            {
-                System.out.println("That is correct ");
-                p1RW = p1RW + 1;
-                pointsPossible = pointsPossible+10;
-            }
-            else if (!answer.equals(x+y))
-            {
+            if (answer.equals(x + y)) {
+                System.out.println("That is correct.");
+                nump1right = nump1right + 1;
+                pointsPossible = pointsPossible + 10;
+            } else if (!answer.equals(x + y)) {
                 System.out.println("That is incorrect. You have " + tries + " remaining");
-                tries = tries-1;
+                tries = tries - 1;
             }
 
 
         } while (tries > 0 && right == false);
-        if (tries == 0)
-        {
+        if (tries == 0) {
             pointsPossible = 10;
         }
 
-         //P2 Right?-------------------------------------------------
+        //P2 Right?-------------------------------------------------
 
-            if (p2out == false) {
-                p2right = gen.nextInt(2);
-                if (p2right == 0) {
-                    System.out.println(p2name + " got the question wrong.");
-                    pointsPossible = 10;
-                } else if (p2right == 1) {
-                    System.out.println(p2name + " got the question right!");
-                    pointsPossible = pointsPossible + 10;
-                }
+        if (p2out == false) {
+            p2right = gen.nextInt(2);
+            if (p2right == 0) {
+                System.out.println(p2name + " got the question wrong.");
+                pointsPossible = 10;
+            } else if (p2right == 1) {
+                System.out.println(p2name + " got the question right!");
+                pointsPossible = pointsPossible + 10;
+                nump2right = nump2right + 1;
             }
+        }
 
-            //P3 Right?--------------------------------------------
-            if (p3out == false) {
-                p3right = gen.nextInt(2);
-                if (p3right == 0) {
-                    System.out.println(p3name + " got the question wrong.");
-                    pointsPossible = 10;
-                } else if (p3right == 1) {
-                    System.out.println(p3name + " got the question right!");
-                    pointsPossible = pointsPossible + 10;
-                }
+        //P3 Right?--------------------------------------------
+        if (p3out == false) {
+            p3right = gen.nextInt(2);
+            if (p3right == 0) {
+                System.out.println(p3name + " got the question wrong.");
+                pointsPossible = 10;
+            } else if (p3right == 1) {
+                System.out.println(p3name + " got the question right!");
+                pointsPossible = pointsPossible + 10;
+                nump3right = nump3right + 1;
             }
+        }
 
-            //P4 Right?----------------------------------------------
-            if (p4out == false) {
-                p4right = gen.nextInt(2);
-                if (p4right == 0) {
-                    System.out.println(p4name + " got the question wrong.");
-                    pointsPossible = 10;
-                } else if (p4right == 1) {
-                    System.out.println(p4name + " got the question right!");
-                    pointsPossible = pointsPossible + 10;
-                }
+        //P4 Right?----------------------------------------------
+        if (p4out == false) {
+            p4right = gen.nextInt(2);
+            if (p4right == 0) {
+                System.out.println(p4name + " got the question wrong.");
+                pointsPossible = 10;
+            } else if (p4right == 1) {
+                System.out.println(p4name + " got the question right!");
+                pointsPossible = pointsPossible + 10;
+                nump4right = nump4right + 1;
             }
+        }
 
-            //P5 Right?------------------------------------------------
-            if (p5out == false) {
-                p5right = gen.nextInt(2);
-                if (p5right == 0) {
-                    System.out.println(p5name + " got the question wrong.");
-                    pointsPossible = 10;
-                } else if (p5right == 1) {
-                    System.out.println(p5name + " got the question right!");
-                    pointsPossible = pointsPossible + 10;
-                }
+        //P5 Right?------------------------------------------------
+        if (p5out == false) {
+            p5right = gen.nextInt(2);
+            if (p5right == 0) {
+                System.out.println(p5name + " got the question wrong.");
+                pointsPossible = 10;
+            } else if (p5right == 1) {
+                System.out.println(p5name + " got the question right!");
+                pointsPossible = pointsPossible + 10;
+                nump5right = nump5right + 1;
             }
+        }
 
 
     }
+
+
+    //----------------------------ROUND 2-------------------------------------------------------
 
 
     public static void round2(String name, String p2name, String p3name, String p4name, String p5name, Integer counter, Boolean p1out, Boolean p2out, Boolean p3out, Boolean p4out, Boolean p5out, Integer player, Integer comp2, Integer comp3, Integer comp4, Integer comp5) {
@@ -175,6 +184,23 @@ public  class WeakestLink {
         int p4right = 0;
         int p5right = 0;
 
+        int p2vote = 0;
+        int p3vote = 0;
+        int p4vote = 0;
+        int p5vote = 0;
+
+        int vote1 = 0;
+        int vote2 = 0;
+        int vote3 = 0;
+        int vote4 = 0;
+        int vote5 = 0;
+
+        boolean voted = false;
+        boolean 2voted = false;
+        boolean 3voted = false;
+        boolean 4voted = false;
+        boolean 5voted = false;
+
         boolean right = false;
         do {
             System.out.println(name + ", what is " + x + " times " + y + "?");
@@ -186,7 +212,7 @@ public  class WeakestLink {
                     nump1right = nump1right + 1;
                     right = true;
                 } else if (!answer.equals(x * y)) {
-                    System.out.println("I'm sorry. That is incorrect");
+                    System.out.println("That is incorrect. You have " + tries + " remaining");
                     tries = tries - 1;
                 }
             } while (tries > 0 && right == false);
@@ -205,6 +231,7 @@ public  class WeakestLink {
                 } else if (p2right == 1) {
                     System.out.println(p2name + " got the question right!");
                     pointsPossible = pointsPossible + 10;
+                    nump2right = nump2right + 1;
                 }
             }
 
@@ -217,6 +244,7 @@ public  class WeakestLink {
                 } else if (p3right == 1) {
                     System.out.println(p3name + " got the question right!");
                     pointsPossible = pointsPossible + 10;
+                    nump3right = nump3right + 1;
                 }
             }
 
@@ -229,6 +257,7 @@ public  class WeakestLink {
                 } else if (p4right == 1) {
                     System.out.println(p4name + " got the question right!");
                     pointsPossible = pointsPossible + 10;
+                    nump4right = nump4right + 1;
                 }
             }
 
@@ -241,8 +270,147 @@ public  class WeakestLink {
                 } else if (p5right == 1) {
                     System.out.println(p5name + " got the question right!");
                     pointsPossible = pointsPossible + 10;
+                    nump5right = nump5right + 1;
                 }
             }
         } while (counter <= 3);
+
+        System.out.println("The round is over. It's time to vote. Who do you vote to be out?")
+        System.out.println("Type the respective player's number to vote them out. 2 for Player 2, etc.")
+        do {
+            String vote = scan.nextLine();
+            if (vote.equals(2)) {
+                vote2 = vote2 + 1;
+                voted = true;
+            } else if (vote.equals(3)) {
+                vote3 = vote3 + 1;
+                voted = true;
+            } else if (vote.equals(4)) {
+                vote4 = vote4 + 1;
+                voted = true;
+            } else if (vote.equals(5)) {
+                vote5 = vote5 + 1;
+                voted = true;
+            } else {
+                System.out.println("That is not a valid vote. Type 2, 3, 4, or 5 to vote for that player.")
+            }
+        } while (voted == false);
+
+        do {
+            p2vote = gen.nextInt(5) + 1;
+            if(p2vote == 1)
+            {
+                vote1 = vote1+1;
+                2voted = true;
+            }
+            else if (p2vote == 3)
+            {
+                vote3 = vote3+1;
+                2voted = true;
+            }
+            else if (p2vote == 4)
+            {
+                vote4 = vote4+1;
+                2voted = true;
+            }
+            else if (p2vote == 5)
+            {
+                vote5 = vote5+1;
+                2voted = true
+            }
+            else
+            {
+                2voted = false;
+            }
+
+        }while(2voted == false);
+
+        do {
+            p3vote = gen.nextInt(5) + 1;
+            if(p3vote == 1)
+            {
+                vote1 = vote1+1;
+                3voted = true;
+            }
+            else if (p2vote == 2)
+            {
+                vote2 = vote2+1;
+                3voted = true;
+            }
+            else if (p3vote == 4)
+            {
+                vote4 = vote4+1;
+                3voted = true;
+            }
+            else if (p3vote == 5)
+            {
+                vote5 = vote5+1;
+                3voted = true
+            }
+            else
+            {
+                3voted = false;
+            }
+
+        }while(3voted == false);
+
+        do {
+            p4vote = gen.nextInt(5) + 1;
+            if(p4vote == 1)
+            {
+                vote1 = vote1+1;
+                4voted = true;
+            }
+            else if (p4vote == 2)
+            {
+                vote2 = vote2+1;
+                4voted = true;
+            }
+            else if (p4vote == 3)
+            {
+                vote3 = vote3+1;
+                4voted = true;
+            }
+            else if (p4vote == 5)
+            {
+                vote5 = vote5+1;
+                4voted = true
+            }
+            else
+            {
+                4voted = false;
+            }
+
+        }while(4voted == false);
+
+        do {
+            p5vote = gen.nextInt(5) + 1;
+            if(p5vote == 1)
+            {
+                vote1 = vote1+1;
+                5voted = true;
+            }
+            else if (p5vote == 3)
+            {
+                vote3 = vote3+1;
+                5voted = true;
+            }
+            else if (p5vote == 4)
+            {
+                vote4 = vote4+1;
+                5voted = true;
+            }
+            else if (p5vote == 2)
+            {
+                vote2 = vote2+1;
+                5voted = true
+            }
+            else
+            {
+                5voted = false;
+            }
+
+        }while(5voted == false);
+
     }
 }
