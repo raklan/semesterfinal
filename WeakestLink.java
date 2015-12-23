@@ -196,10 +196,10 @@ public  class WeakestLink {
         int vote5 = 0;
 
         boolean voted = false;
-        boolean 2voted = false;
-        boolean 3voted = false;
-        boolean 4voted = false;
-        boolean 5voted = false;
+        boolean p2voted = false;
+        boolean p3voted = false;
+        boolean p4voted = false;
+        boolean p5voted = false;
 
         boolean right = false;
         do {
@@ -275,8 +275,8 @@ public  class WeakestLink {
             }
         } while (counter <= 3);
 
-        System.out.println("The round is over. It's time to vote. Who do you vote to be out?")
-        System.out.println("Type the respective player's number to vote them out. 2 for Player 2, etc.")
+        System.out.println("The round is over. It's time to vote. Who do you vote to be out?");
+        System.out.println("Type the respective player's number to vote them out. 2 for Player 2, etc.");
         do {
             String vote = scan.nextLine();
             if (vote.equals(2)) {
@@ -292,7 +292,7 @@ public  class WeakestLink {
                 vote5 = vote5 + 1;
                 voted = true;
             } else {
-                System.out.println("That is not a valid vote. Type 2, 3, 4, or 5 to vote for that player.")
+                System.out.println("That is not a valid vote. Type 2, 3, 4, or 5 to vote for that player.");
             }
         } while (voted == false);
 
@@ -301,116 +301,116 @@ public  class WeakestLink {
             if(p2vote == 1)
             {
                 vote1 = vote1+1;
-                2voted = true;
+                p2voted = true;
             }
             else if (p2vote == 3)
             {
                 vote3 = vote3+1;
-                2voted = true;
+                p2voted = true;
             }
             else if (p2vote == 4)
             {
                 vote4 = vote4+1;
-                2voted = true;
+                p2voted = true;
             }
             else if (p2vote == 5)
             {
                 vote5 = vote5+1;
-                2voted = true
+                p2voted = true;
             }
             else
             {
-                2voted = false;
+                p2voted = false;
             }
 
-        }while(2voted == false);
+        }while(p2voted == false);
 
         do {
             p3vote = gen.nextInt(5) + 1;
             if(p3vote == 1)
             {
                 vote1 = vote1+1;
-                3voted = true;
+                p3voted = true;
             }
             else if (p2vote == 2)
             {
                 vote2 = vote2+1;
-                3voted = true;
+                p3voted = true;
             }
             else if (p3vote == 4)
             {
                 vote4 = vote4+1;
-                3voted = true;
+                p3voted = true;
             }
             else if (p3vote == 5)
             {
                 vote5 = vote5+1;
-                3voted = true
+                p3voted = true;
             }
             else
             {
-                3voted = false;
+                p3voted = false;
             }
 
-        }while(3voted == false);
+        }while(p3voted == false);
 
         do {
             p4vote = gen.nextInt(5) + 1;
             if(p4vote == 1)
             {
                 vote1 = vote1+1;
-                4voted = true;
+                p4voted = true;
             }
             else if (p4vote == 2)
             {
                 vote2 = vote2+1;
-                4voted = true;
+                p4voted = true;
             }
             else if (p4vote == 3)
             {
                 vote3 = vote3+1;
-                4voted = true;
+                p4voted = true;
             }
             else if (p4vote == 5)
             {
                 vote5 = vote5+1;
-                4voted = true
+                p4voted = true;
             }
             else
             {
-                4voted = false;
+                p4voted = false;
             }
 
-        }while(4voted == false);
+        }while(p4voted == false);
 
         do {
             p5vote = gen.nextInt(5) + 1;
             if(p5vote == 1)
             {
                 vote1 = vote1+1;
-                5voted = true;
+                p5voted = true;
             }
             else if (p5vote == 3)
             {
                 vote3 = vote3+1;
-                5voted = true;
+                p5voted = true;
             }
             else if (p5vote == 4)
             {
                 vote4 = vote4+1;
-                5voted = true;
+                p5voted = true;
             }
             else if (p5vote == 2)
             {
                 vote2 = vote2+1;
-                5voted = true
+                p5voted = true;
             }
             else
             {
-                5voted = false;
+                p5voted = false;
             }
 
-        }while(5voted == false);
+        }while(p5voted == false);
 
     }
 }
