@@ -36,6 +36,8 @@ public  class WeakestLink {
     static int comp4 = 4;
     static int comp5 = 5;
 
+    static int pointsPossible = 10;
+
     static Random gen = new Random();
     static Scanner scan = new Scanner(System.in);
 
@@ -173,10 +175,10 @@ public  class WeakestLink {
     public static void round2() {
         if (p1out == false) {
             String answer = "";
-            int pointsPossible = 10;
             int tries = 2;
             int bank = 0;
-            
+
+            pointsPossible = 10;
 
             int nump1right = 0;
             int nump2right = 0;
@@ -212,63 +214,32 @@ public  class WeakestLink {
                         System.out.println("That is incorrect. You have " + tries + " tries remaining");
                         tries = tries - 1;
                     }
+
                 } while (tries > 0 && right == false);
                 if (tries == 0) {
                     pointsPossible = 10;
                 }
-                tries = 3;
+                tries = 2;
 
                 //P2 Right?-------------------------------------------------
 
                 if (p2out == false) {
-                    p2right = gen.nextInt(2);
-                    if (p2right == 0) {
-                        System.out.println(p2name + " got the question wrong.");
-                        pointsPossible = 10;
-                    } else if (p2right == 1) {
-                        System.out.println(p2name + " got the question right!");
-                        pointsPossible = pointsPossible + 10;
-                        nump2right = nump2right + 1;
-                    }
+                    nump2right = checkAI(p2name, nump2right);
                 }
 
                 //P3 Right?--------------------------------------------
                 if (p3out == false) {
-                    p3right = gen.nextInt(2);
-                    if (p3right == 0) {
-                        System.out.println(p3name + " got the question wrong.");
-                        pointsPossible = 10;
-                    } else if (p3right == 1) {
-                        System.out.println(p3name + " got the question right!");
-                        pointsPossible = pointsPossible + 10;
-                        nump3right = nump3right + 1;
-                    }
+                    nump3right = checkAI(p3name, nump3right);
                 }
 
                 //P4 Right?----------------------------------------------
                 if (p4out == false) {
-                    p4right = gen.nextInt(2);
-                    if (p4right == 0) {
-                        System.out.println(p4name + " got the question wrong.");
-                        pointsPossible = 10;
-                    } else if (p4right == 1) {
-                        System.out.println(p4name + " got the question right!");
-                        pointsPossible = pointsPossible + 10;
-                        nump4right = nump4right + 1;
-                    }
+                    nump4right = checkAI(p4name, nump4right);
                 }
 
                 //P5 Right?------------------------------------------------
                 if (p5out == false) {
-                    p5right = gen.nextInt(2);
-                    if (p5right == 0) {
-                        System.out.println(p5name + " got the question wrong.");
-                        pointsPossible = 10;
-                    } else if (p5right == 1) {
-                        System.out.println(p5name + " got the question right!");
-                        pointsPossible = pointsPossible + 10;
-                        nump5right = nump5right + 1;
-                    }
+                    nump5right = checkAI(p5name, nump5right);
                 }
                 counter = counter + 1;
                 System.out.println("");
@@ -467,5 +438,18 @@ public  class WeakestLink {
             }
 
         } while (sweetness == false);
+    }
+
+    public static Integer checkAI(String playerName, Integer numRight) {
+        int isRight = gen.nextInt(2);
+        if (isRight == 0) {
+            System.out.println(playerName + " got the question wrong.");
+            pointsPossible = 10;
+        } else {
+            System.out.println(playerName + " got the question right!");
+            pointsPossible = pointsPossible + 10;
+            numRight = numRight + 1;
+        }
+        return numRight;
     }
 }
