@@ -51,10 +51,6 @@ public class WeakestLink {
         System.out.println("Welcome! Let's play The Weakest Link! You player 1.");
         System.out.println("");
 
-        System.out.println("Round one: Addition. You will have numbers up to 1000");
-
-
-
         if (p1out == false) {
             System.out.println("Round one: Addition. You will have numbers up to 1000");
             round1();
@@ -133,8 +129,6 @@ public class WeakestLink {
         boolean right = false;
         do {
 
-
-
             do {
                 int x = gen.nextInt(100) + 1;
                 int y = gen.nextInt(100) + 1;
@@ -148,11 +142,13 @@ public class WeakestLink {
                     answer = scan.nextLine();
                     pointsPossible = 10;
                 }
-                if (Integer.parseInt(answer) == x + y) {
+                if (Integer.parseInt(answer) == (x+y))
+                {
                     System.out.println("That is correct.");
                     nump1right = nump1right + 1;
                     pointsPossible = pointsPossible + 10;
-                } else if (Integer.parseInt(answer) == x + y) {
+                }
+                else if (Integer.parseInt(answer) != x + y) {
                     tries = tries - 1;
                     System.out.println("That is incorrect. You have " + tries + " remaining");
                 }
@@ -165,631 +161,603 @@ public class WeakestLink {
 
             //P2 Right?-------------------------------------------------
 
-
             if (p2out == false) {
-                p2right = gen.nextInt(2);
-                if (p2right == 0) {
-                    System.out.println(p2name + " got the question wrong.");
+                nump2right = checkAI(p2name, nump2right);
+            }
+
+            //P3 Right?--------------------------------------------
+            if (p3out == false) {
+                nump3right = checkAI(p3name, nump3right);
+            }
+
+            //P4 Right?----------------------------------------------
+            if (p4out == false) {
+                nump4right = checkAI(p4name, nump4right);
+            }
+
+            //P5 Right?------------------------------------------------
+            if (p5out == false) {
+                nump5right = checkAI(p5name, nump5right);
+            }
+            counter = counter + 1;
+            System.out.println("");
+
+        } while (counter <= 3);
+        if (nump1right > nump2right && nump1right > nump3right && nump1right > nump4right && nump1right > nump5right) {
+            System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
+            p1points = p1points + bank;
+        } else if (nump2right > nump1right && nump2right > nump3right && nump2right > nump4right && nump2right > nump5right) {
+            System.out.println("With " + nump2right + " questions right, " + p2name + "gets the points.");
+            p2points = p2points + bank;
+        } else if (nump3right > nump1right && nump3right > nump2right && nump3right > nump4right && nump3right > nump5right) {
+            System.out.println("With " + nump3right + " questions right, " + p3name + "gets the points.");
+            p3points = p3points + bank;
+        } else if (nump4right > nump1right && nump4right > nump3right && nump4right > nump2right && nump4right > nump5right) {
+            System.out.println("With " + nump4right + " questions right, " + p4name + "gets the points.");
+            p4points = p4points + bank;
+        } else if (nump5right > nump1right && nump5right > nump2right && nump5right > nump3right && nump5right > nump4right) {
+            System.out.println("With " + nump5right + " questions right, " + p5name + "gets the points.");
+            p5points = p5points + bank;
+        } else {
+            System.out.println("There was a tie, so no one gets the points. Sorry.");
+        }
+        bank = 0;
+
+        System.out.println("");
+        voting();
+
+        System.out.println("The Round is over. You have " + p1points + " points.");
+    }
+
+    //----------------------------ROUND 2-------------------------------------------------------
+    public static void round2() {
+        String answer = "";
+        int tries = 3;
+        int bank = 0;
+
+        pointsPossible = 10;
+
+        int nump1right = 0;
+        int nump2right = 0;
+        int nump3right = 0;
+        int nump4right = 0;
+        int nump5right = 0;
+
+        int p2right = 0;
+        int p3right = 0;
+        int p4right = 0;
+        int p5right = 0;
+
+        boolean right = false;
+        do {
+            int x = gen.nextInt(100) + 1;
+            int y = gen.nextInt(100) + 1;
+            System.out.println(name + ", what is " + x + " times " + y + "?");
+            System.out.println("(Or type 'Bank' to bank the possible points.)");
+            do {
+                answer = scan.nextLine();
+                if (answer.equalsIgnoreCase("bank")) {
+                    bank = bank + pointsPossible;
+                    System.out.println("The Bank is now worth " + bank + " points. The possible points have been reset to 10. Please answer the question now.");
+                    answer = scan.nextLine();
                     pointsPossible = 10;
-                } else if (p2right == 1) {
-                    System.out.println(p2name + " got the question right!");
+                }
+                if (Integer.parseInt(answer) == x * y) {
+                    System.out.println("That is correct");
                     pointsPossible = pointsPossible + 10;
-                    nump2right = nump2right + 1;
+                    nump1right = nump1right + 1;
+                    right = true;
+                } else if (Integer.parseInt(answer) != x * y)  {
+                    tries = tries - 1;
+                    System.out.println("That is incorrect. You have " + tries + " tries remaining");
                 }
 
-                //P3 Right?--------------------------------------------
-                if (p3out == false) {
-                    p3right = gen.nextInt(2);
-                    if (p3right == 0) {
-                        System.out.println(p3name + " got the question wrong.");
-                        pointsPossible = 10;
-                    } else if (p3right == 1) {
-                        System.out.println(p3name + " got the question right!");
-                        pointsPossible = pointsPossible + 10;
-                        nump3right = nump3right + 1;
-
-
-                        //P4 Right?----------------------------------------------
-                        if (p4out == false) {
-                            p4right = gen.nextInt(2);
-                            if (p4right == 0) {
-                                System.out.println(p4name + " got the question wrong.");
-                                pointsPossible = 10;
-                            } else if (p4right == 1) {
-                                System.out.println(p4name + " got the question right!");
-                                pointsPossible = pointsPossible + 10;
-                                nump4right = nump4right + 1;
-
-
-                                //P5 Right?------------------------------------------------
-                                if (p5out == false) {
-                                    p5right = gen.nextInt(2);
-                                    if (p5right == 0) {
-                                        System.out.println(p5name + " got the question wrong.");
-                                        pointsPossible = 10;
-                                    } else if (p5right == 1) {
-                                        System.out.println(p5name + " got the question right!");
-                                        pointsPossible = pointsPossible + 10;
-                                        nump5right = nump5right + 1;
-
-                                        counter = counter + 1;
-                                        System.out.println("");
-
-                                    } while (counter <= 3);
-                                    if (nump1right > nump2right && nump1right > nump3right && nump1right > nump4right && nump1right > nump5right) {
-                                        System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
-                                        p1points = p1points + bank;
-                                    } else if (nump2right > nump1right && nump2right > nump3right && nump2right > nump4right && nump2right > nump5right) {
-                                        System.out.println("With " + nump2right + " questions right, " + p2name + "gets the points.");
-                                        p2points = p2points + bank;
-                                    } else if (nump3right > nump1right && nump3right > nump2right && nump3right > nump4right && nump3right > nump5right) {
-                                        System.out.println("With " + nump3right + " questions right, " + p3name + "gets the points.");
-                                        p3points = p3points + bank;
-                                    } else if (nump4right > nump1right && nump4right > nump3right && nump4right > nump2right && nump4right > nump5right) {
-                                        System.out.println("With " + nump4right + " questions right, " + p4name + "gets the points.");
-                                        p4points = p4points + bank;
-                                    } else if (nump5right > nump1right && nump5right > nump2right && nump5right > nump3right && nump5right > nump4right) {
-                                        System.out.println("With " + nump5right + " questions right, " + p5name + "gets the points.");
-                                        p5points = p5points + bank;
-                                    } else {
-                                        System.out.println("There was a tie, so no one gets the points. Sorry.");
-                                    }
-                                    bank = 0;
-
-                                    System.out.println("");
-                                    voting();
-
-                                    System.out.println("The Round is over. You have " + p1points + " points.");
-                                }
-                                //----------------------------ROUND 2-------------------------------------------------------
-                                public static void round2() {
-                                    String answer = "";
-                                    int tries = 3;
-                                    int bank = 0;
-
-                                    pointsPossible = 10;
-
-                                    int nump1right = 0;
-                                    int nump2right = 0;
-                                    int nump3right = 0;
-                                    int nump4right = 0;
-                                    int nump5right = 0;
-
-                                    int p2right = 0;
-                                    int p3right = 0;
-                                    int p4right = 0;
-                                    int p5right = 0;
-
-                                    boolean right = false;
-                                    do {
-                                        int x = gen.nextInt(100) + 1;
-                                        int y = gen.nextInt(100) + 1;
-                                        System.out.println(name + ", what is " + x + " times " + y + "?");
-                                        System.out.println("(Or type 'Bank' to bank the possible points.)");
-                                        do {
-                                            answer = scan.nextLine();
-                                            if (answer.equalsIgnoreCase("bank")) {
-                                                bank = bank + pointsPossible;
-                                                System.out.println("The Bank is now worth " + bank + " points. The possible points have been reset to 10. Please answer the question now.");
-                                                answer = scan.nextLine();
-                                                pointsPossible = 10;
-                                            }
-                                            if (Integer.parseInt(answer) == x * y) {
-                                                System.out.println("That is correct");
-                                                pointsPossible = pointsPossible + 10;
-                                                nump1right = nump1right + 1;
-                                                right = true;
-                                            } else if (Integer.parseInt(answer) != x * y)  {
-                                                tries = tries - 1;
-                                                System.out.println("That is incorrect. You have " + tries + " tries remaining");
-                                            }
-
-                                        } while (tries > 0 && right == false);
-                                        if (tries == 0) {
-                                            pointsPossible = 10;
-                                        }
-                                        tries = 3;
-
-                                        //P2 Right?-------------------------------------------------
-
-                                        if (p2out == false) {
-                                            nump2right = checkAI(p2name, nump2right);
-                                        }
-
-                                        //P3 Right?--------------------------------------------
-                                        if (p3out == false) {
-                                            nump3right = checkAI(p3name, nump3right);
-                                        }
-
-                                        //P4 Right?----------------------------------------------
-                                        if (p4out == false) {
-                                            nump4right = checkAI(p4name, nump4right);
-                                        }
-
-                                        //P5 Right?------------------------------------------------
-                                        if (p5out == false) {
-                                            nump5right = checkAI(p5name, nump5right);
-                                        }
-                                        counter = counter + 1;
-                                        System.out.println("");
-                                    } while (counter <= 3);
-
-                                    if (nump1right > nump2right && nump1right > nump3right && nump1right > nump4right && nump1right > nump5right) {
-                                        System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
-                                        p1points = p1points + bank;
-                                    } else if (nump2right > nump1right && nump2right > nump3right && nump2right > nump4right && nump2right > nump5right) {
-                                        System.out.println("With " + nump2right + " questions right, " + p2name + "gets the points.");
-                                        p2points = p2points + bank;
-                                    } else if (nump3right > nump1right && nump3right > nump2right && nump3right > nump4right && nump3right > nump5right) {
-                                        System.out.println("With " + nump3right + " questions right, " + p3name + "gets the points.");
-                                        p3points = p3points + bank;
-                                    } else if (nump4right > nump1right && nump4right > nump3right && nump4right > nump2right && nump4right > nump5right) {
-                                        System.out.println("With " + nump4right + " questions right, " + p4name + "gets the points.");
-                                        p4points = p4points + bank;
-                                    } else if (nump5right > nump1right && nump5right > nump2right && nump5right > nump3right && nump5right > nump4right) {
-                                        System.out.println("With " + nump5right + " questions right, " + p5name + "gets the points.");
-                                        p5points = p5points + bank;
-                                    } else {
-                                        System.out.println("There was a tie, so no one gets the points. Sorry.");
-                                    }
-                                    bank = 0;
-
-                                    System.out.println("");
-                                    voting();
-
-                                    System.out.println("The Round is over. You have " + p1points + " points.");
-
-                                }
-
-                                //------------------------------------------------FINAL ROUND----------------------------------------------------------------
-                                public static void finalRound() {
-                                    int tries = 2;
-                                    boolean right = false;
-
-                                    String answer = "";
-
-                                    int nump1right = 0;
-                                    int nump2right = 0;
-                                    int nump3right = 0;
-                                    int nump4right = 0;
-                                    int nump5right = 0;
-
-                                    int p2right = 0;
-                                    int p3right = 0;
-                                    int p4right = 0;
-                                    int p5right = 0;
-
-                                    int a = gen.nextInt(50) + 1;
-                                    int b = gen.nextInt(50) + 1;
-                                    int c = gen.nextInt(50) + 1;
-                                    int d = gen.nextInt(50) + 1;
-                                    int e = gen.nextInt(50) + 1;
-
-                                    System.out.println("Welcome to the Final Round. Order of Operations. There are numbers up to 50.");
-                                    System.out.println("You will each have 5 questions. The Player with the most right will gain 200 bonus points.");
-                                    System.out.println("There is no Bank in this round, and you will only have two tries per question.");
-                                    System.out.println("The Player with the most points will be the victor!");
-
-                                    System.out.println(name + ", what is " + a + " plus " + d + " minus " + b + "?");
-                                    do {
-                                        answer = scan.nextLine();
-                                        if (Integer.parseInt(answer) == (a + d - b)) {
-                                            System.out.println("That is correct");
-                                            nump1right = nump1right + 1;
-                                            right = true;
-                                        } else if (Integer.parseInt(answer) != (a + d - b))  {
-                                            tries = tries - 1;
-                                            System.out.println("That is incorrect. You have " + tries + " tries remaining");
-                                        }
-
-                                    } while (tries > 0 && right == false);
-
-                                    //P2 Right?-------------------------------------------------
-
-                                    if (p2out == false) {
-                                        nump2right = checkAI(p2name, nump2right);
-                                    }
-
-                                    //P3 Right?--------------------------------------------
-                                    if (p3out == false) {
-                                        nump3right = checkAI(p3name, nump3right);
-                                    }
-
-                                    //P4 Right?----------------------------------------------
-                                    if (p4out == false) {
-                                        nump4right = checkAI(p4name, nump4right);
-                                    }
-
-                                    //P5 Right?------------------------------------------------
-                                    if (p5out == false) {
-                                        nump5right = checkAI(p5name, nump5right);
-                                    }
-
-                                    System.out.println("");
-
-                                    //-------------------------Q2--------------------
-                                    a = gen.nextInt(50) + 1;
-                                    b = gen.nextInt(50) + 1;
-                                    c = gen.nextInt(50) + 1;
-                                    d = gen.nextInt(50) + 1;
-                                    e = gen.nextInt(50) + 1;
-
-                                    System.out.println(name + ", what is " + c + " times " + e + " minus " + a + "?");
-
-                                    do {
-                                        answer = scan.nextLine();
-                                        if (Integer.parseInt(answer) == (c * e - a)) {
-                                            System.out.println("That is correct");
-                                            nump1right = nump1right + 1;
-                                            right = true;
-                                        } else if (Integer.parseInt(answer) != (c * e - a))  {
-                                            tries = tries - 1;
-                                            System.out.println("That is incorrect. You have " + tries + " tries remaining");
-                                        }
-
-                                    } while (tries > 1 && right == false);
-
-                                    //P2 Right?-------------------------------------------------
-
-                                    if (p2out == false) {
-                                        nump2right = checkAI(p2name, nump2right);
-                                    }
-
-                                    //P3 Right?--------------------------------------------
-                                    if (p3out == false) {
-                                        nump3right = checkAI(p3name, nump3right);
-                                    }
-
-                                    //P4 Right?----------------------------------------------
-                                    if (p4out == false) {
-                                        nump4right = checkAI(p4name, nump4right);
-                                    }
-
-                                    //P5 Right?------------------------------------------------
-                                    if (p5out == false) {
-                                        nump5right = checkAI(p5name, nump5right);
-                                    }
-
-                                    System.out.println("");
-
-                                    //---------------------Q3--------------------
-                                    a = gen.nextInt(50) + 1;
-                                    b = gen.nextInt(50) + 1;
-                                    c = gen.nextInt(50) + 1;
-                                    d = gen.nextInt(50) + 1;
-                                    e = gen.nextInt(50) + 1;
-
-                                    System.out.println(name + ", what is " + b + " minus " + e + " times " + c + "?");
-
-                                    do {
-                                        answer = scan.nextLine();
-                                        if (Integer.parseInt(answer) == (b - e * c)) {
-                                            System.out.println("That is correct");
-                                            nump1right = nump1right + 1;
-                                            right = true;
-                                        } else if (Integer.parseInt(answer) != (b - e * c))  {
-                                            tries = tries - 1;
-                                            System.out.println("That is incorrect. You have " + tries + " tries remaining");
-                                        }
-
-                                    } while (tries > 0 && right == false);
-                                    tries = 2;
-
-                                    //P2 Right?-------------------------------------------------
-
-                                    if (p2out == false) {
-                                        nump2right = checkAI(p2name, nump2right);
-                                    }
-
-                                    //P3 Right?--------------------------------------------
-                                    if (p3out == false) {
-                                        nump3right = checkAI(p3name, nump3right);
-                                    }
-
-                                    //P4 Right?----------------------------------------------
-                                    if (p4out == false) {
-                                        nump4right = checkAI(p4name, nump4right);
-                                    }
-
-                                    //P5 Right?------------------------------------------------
-                                    if (p5out == false) {
-                                        nump5right = checkAI(p5name, nump5right);
-                                    }
-
-                                    System.out.println("");
-
-                                    //---------------------Q4--------------------
-                                    a = gen.nextInt(50) + 1;
-                                    b = gen.nextInt(50) + 1;
-                                    c = gen.nextInt(50) + 1;
-                                    d = gen.nextInt(50) + 1;
-                                    e = gen.nextInt(50) + 1;
-
-                                    System.out.println(name + ", what is " + b + " plus " + a + " times " + d + " minus " + c + "?");
-
-                                    do {
-                                        answer = scan.nextLine();
-                                        if (Integer.parseInt(answer) == (b + a * d - c)) {
-                                            System.out.println("That is correct");
-                                            nump1right = nump1right + 1;
-                                            right = true;
-                                        } else if (Integer.parseInt(answer) != (b + a * d - c))  {
-                                            tries = tries - 1;
-                                            System.out.println("That is incorrect. You have " + tries + " tries remaining");
-                                        }
-
-                                    } while (tries > 0 && right == false);
-                                    tries = 2;
-
-                                    //P2 Right?-------------------------------------------------
-
-                                    if (p2out == false) {
-                                        nump2right = checkAI(p2name, nump2right);
-                                    }
-
-                                    //P3 Right?--------------------------------------------
-                                    if (p3out == false) {
-                                        nump3right = checkAI(p3name, nump3right);
-                                    }
-
-                                    //P4 Right?----------------------------------------------
-                                    if (p4out == false) {
-                                        nump4right = checkAI(p4name, nump4right);
-                                    }
-
-                                    //P5 Right?------------------------------------------------
-                                    if (p5out == false) {
-                                        nump5right = checkAI(p5name, nump5right);
-                                    }
-
-                                    System.out.println("");
-
-                                    //---------------------Q5--------------------
-                                    a = gen.nextInt(50) + 1;
-                                    b = gen.nextInt(50) + 1;
-                                    c = gen.nextInt(50) + 1;
-                                    d = gen.nextInt(50) + 1;
-                                    e = gen.nextInt(50) + 1;
-
-                                    System.out.println(name + ", what is " + b + " minus " + a + " plus " + d + " times " + c + " minus " + e + "?");
-
-                                    do {
-                                        answer = scan.nextLine();
-                                        if (Integer.parseInt(answer) == (b - a + d * c - e)) {
-                                            System.out.println("That is correct");
-                                            nump1right = nump1right + 1;
-                                            right = true;
-                                        } else if (Integer.parseInt(answer) != (b - a + d * c - e))  {
-                                            tries = tries - 1;
-                                            System.out.println("That is incorrect. You have " + tries + " tries remaining");
-                                        }
-
-                                    } while (tries > 0 && right == false);
-                                    tries = 2;
-
-                                    //P2 Right?-------------------------------------------------
-
-                                    if (p2out == false) {
-                                        nump2right = checkAI(p2name, nump2right);
-                                    }
-
-                                    //P3 Right?--------------------------------------------
-                                    if (p3out == false) {
-                                        nump3right = checkAI(p3name, nump3right);
-                                    }
-
-                                    //P4 Right?----------------------------------------------
-                                    if (p4out == false) {
-                                        nump4right = checkAI(p4name, nump4right);
-                                    }
-
-                                    //P5 Right?------------------------------------------------
-                                    if (p5out == false) {
-                                        nump5right = checkAI(p5name, nump5right);
-                                    }
-
-                                    System.out.println("");
-
-                                    if (nump1right > nump2right && nump1right > nump3right && nump1right > nump4right && nump1right > nump5right) {
-                                        System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
-                                        p1points = p1points + 200;
-                                    } else if (nump2right > nump1right && nump2right > nump3right && nump2right > nump4right && nump2right > nump5right) {
-                                        System.out.println("With " + nump2right + " questions right, " + p2name + "gets the points.");
-                                        p2points = p2points + 200;
-                                    } else if (nump3right > nump1right && nump3right > nump2right && nump3right > nump4right && nump3right > nump5right) {
-                                        System.out.println("With " + nump3right + " questions right, " + p3name + "gets the points.");
-                                        p3points = p3points + 200;
-                                    } else if (nump4right > nump1right && nump4right > nump3right && nump4right > nump2right && nump4right > nump5right) {
-                                        System.out.println("With " + nump4right + " questions right, " + p4name + "gets the points.");
-                                        p4points = p4points + 200;
-                                    } else if (nump5right > nump1right && nump5right > nump2right && nump5right > nump3right && nump5right > nump4right) {
-                                        System.out.println("With " + nump5right + " questions right, " + p5name + "gets the points.");
-                                        p5points = p5points + 200;
-                                    } else {
-                                        System.out.println("There was a tie, so no one gets the points. Sorry.");
-                                    }
-
-                                }
-
-                                //----------------------------------------------------VOTING METHOD-----------------------------------------------------------------
-                                public static void voting() {
-
-                                    String vote = " ";
-                                    int p2vote = 0;
-                                    int p3vote = 0;
-                                    int p4vote = 0;
-                                    int p5vote = 0;
-
-                                    int vote1 = 0;
-                                    int vote2 = 0;
-                                    int vote3 = 0;
-                                    int vote4 = 0;
-                                    int vote5 = 0;
-
-                                    boolean voted = false;
-                                    boolean p2voted = false;
-                                    boolean p3voted = false;
-                                    boolean p4voted = false;
-                                    boolean p5voted = false;
-
-                                    boolean sweetness = false;
-
-                                    System.out.println("The round is over. It's time to vote. Who do you vote to be out?");
-
-                                    do {
-                                        System.out.println("Type the respective player's number to vote them out. 2 for Player 2, etc.");
-                                        do {
-                                            vote = scan.nextLine();
-                                            if (Integer.parseInt(vote) == 2) {
-                                                vote2 = vote2 + 1;
-                                                voted = true;
-                                            } else if (Integer.parseInt(vote) == 3) {
-                                                vote3 = vote3 + 1;
-                                                voted = true;
-                                            } else if (Integer.parseInt(vote) == 4) {
-                                                vote4 = vote4 + 1;
-                                                voted = true;
-                                            } else if (Integer.parseInt(vote) == 5) {
-                                                vote5 = vote5 + 1;
-                                                voted = true;
-                                            } else {
-                                                System.out.println("That is not a valid vote. Type 2, 3, 4, or 5 to vote for that player.");
-                                            }
-                                        } while (voted == false);
-
-                                        if (p2out == false) {
-                                            do {
-                                                p2vote = gen.nextInt(5) + 1;
-                                                if (p2vote == 1) {
-                                                    vote1 = vote1 + 1;
-                                                    p2voted = true;
-                                                } else if (p2vote == 3) {
-                                                    vote3 = vote3 + 1;
-                                                    p2voted = true;
-                                                } else if (p2vote == 4) {
-                                                    vote4 = vote4 + 1;
-                                                    p2voted = true;
-                                                } else if (p2vote == 5) {
-                                                    vote5 = vote5 + 1;
-                                                    p2voted = true;
-                                                } else {
-                                                    p2voted = false;
-                                                }
-
-                                            } while (p2voted == false);
-                                        }
-
-                                        if (p3out == false) {
-                                            do {
-                                                p3vote = gen.nextInt(5) + 1;
-                                                if (p3vote == 1) {
-                                                    vote1 = vote1 + 1;
-                                                    p3voted = true;
-                                                } else if (p2vote == 2) {
-                                                    vote2 = vote2 + 1;
-                                                    p3voted = true;
-                                                } else if (p3vote == 4) {
-                                                    vote4 = vote4 + 1;
-                                                    p3voted = true;
-                                                } else if (p3vote == 5) {
-                                                    vote5 = vote5 + 1;
-                                                    p3voted = true;
-                                                } else {
-                                                    p3voted = false;
-                                                }
-
-                                            } while (p3voted == false);
-                                        }
-
-                                        if (p4out == false) {
-                                            do {
-                                                p4vote = gen.nextInt(5) + 1;
-                                                if (p4vote == 1) {
-                                                    vote1 = vote1 + 1;
-                                                    p4voted = true;
-                                                } else if (p4vote == 2) {
-                                                    vote2 = vote2 + 1;
-                                                    p4voted = true;
-                                                } else if (p4vote == 3) {
-                                                    vote3 = vote3 + 1;
-                                                    p4voted = true;
-                                                } else if (p4vote == 5) {
-                                                    vote5 = vote5 + 1;
-                                                    p4voted = true;
-                                                } else {
-                                                    p4voted = false;
-                                                }
-
-                                            } while (p4voted == false);
-                                        }
-
-                                        if (p4out == false) {
-                                            do {
-                                                p5vote = gen.nextInt(5) + 1;
-                                                if (p5vote == 1) {
-                                                    vote1 = vote1 + 1;
-                                                    p5voted = true;
-                                                } else if (p5vote == 3) {
-                                                    vote3 = vote3 + 1;
-                                                    p5voted = true;
-                                                } else if (p5vote == 4) {
-                                                    vote4 = vote4 + 1;
-                                                    p5voted = true;
-                                                } else if (p5vote == 2) {
-                                                    vote2 = vote2 + 1;
-                                                    p5voted = true;
-                                                } else {
-                                                    p5voted = false;
-                                                }
-
-                                            } while (p5voted == false);
-                                        }
-
-                                        System.out.println(name + ", you have voted for Player " + vote + ".");
-                                        System.out.println("Player 2, " + p2name + ", voted for Player " + p2vote);
-                                        System.out.println("Player 3, " + p3name + ", voted for Player " + p3vote);
-                                        System.out.println("Player 4, " + p4name + ", voted for Player " + p4vote);
-                                        System.out.println("Player 5, " + p5name + ", voted for Player " + p5vote);
-                                        System.out.println("");
-
-                                        if (vote1 > vote2 && vote1 > vote3 && vote1 > vote4 && vote1 > vote5) {
-                                            System.out.println(name + ", you are the Weakest Link. You have been voted out. Game Over");
-                                            p1out = true;
-                                            sweetness = true;
-                                        } else if (vote2 > vote1 && vote2 > vote3 && vote2 > vote4 && vote2 > vote5) {
-                                            System.out.println("Player 2, " + p2name + ", is the Weakest Link. They are out.");
-                                            p2out = true;
-                                            sweetness = true;
-                                        } else if (vote3 > vote1 && vote3 > vote2 && vote3 > vote4 && vote3 > vote5) {
-                                            System.out.println("Player 3, " + p3name + ", is the Weakest Link. They are out.");
-                                            p3out = true;
-                                            sweetness = true;
-                                        } else if (vote4 > vote1 && vote4 > vote2 && vote4 > vote3 && vote4 > vote5) {
-                                            System.out.println("Player 4, " + p4name + ", is the Weakest Link. They are out.");
-                                            p4out = true;
-                                            sweetness = true;
-                                        } else if (vote5 > vote1 && vote5 > vote2 && vote5 > vote3 && vote5 > vote4) {
-                                            System.out.println("Player 5, " + p5name + ", is the Weakest Link. They are out.");
-                                            p5out = true;
-                                            sweetness = true;
-                                        } else {
-                                            System.out.println("There was a tie. Please vote again.");
-                                        }
-
-                                    } while (sweetness == false);
-                                }
-
-                                //-------------------------------AI CHECKING------------------------------------------------------------------------
-                                public static Integer checkAI(String playerName, Integer numRight) {
-                                    int isRight = gen.nextInt(2);
-                                    if (isRight == 0) {
-                                        System.out.println(playerName + " got the question wrong.");
-                                        pointsPossible = 10;
-                                    } else {
-                                        System.out.println(playerName + " got the question right!");
-                                        pointsPossible = pointsPossible + 10;
-                                        numRight = numRight + 1;
-                                    }
-                                    return numRight;
-                                }
-                            }
+            } while (tries > 0 && right == false);
+            if (tries == 0) {
+                pointsPossible = 10;
+            }
+            tries = 3;
+
+            //P2 Right?-------------------------------------------------
+
+            if (p2out == false) {
+                nump2right = checkAI(p2name, nump2right);
+            }
+
+            //P3 Right?--------------------------------------------
+            if (p3out == false) {
+                nump3right = checkAI(p3name, nump3right);
+            }
+
+            //P4 Right?----------------------------------------------
+            if (p4out == false) {
+                nump4right = checkAI(p4name, nump4right);
+            }
+
+            //P5 Right?------------------------------------------------
+            if (p5out == false) {
+                nump5right = checkAI(p5name, nump5right);
+            }
+            counter = counter + 1;
+            System.out.println("");
+        } while (counter <= 3);
+
+        if (nump1right > nump2right && nump1right > nump3right && nump1right > nump4right && nump1right > nump5right) {
+            System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
+            p1points = p1points + bank;
+        } else if (nump2right > nump1right && nump2right > nump3right && nump2right > nump4right && nump2right > nump5right) {
+            System.out.println("With " + nump2right + " questions right, " + p2name + "gets the points.");
+            p2points = p2points + bank;
+        } else if (nump3right > nump1right && nump3right > nump2right && nump3right > nump4right && nump3right > nump5right) {
+            System.out.println("With " + nump3right + " questions right, " + p3name + "gets the points.");
+            p3points = p3points + bank;
+        } else if (nump4right > nump1right && nump4right > nump3right && nump4right > nump2right && nump4right > nump5right) {
+            System.out.println("With " + nump4right + " questions right, " + p4name + "gets the points.");
+            p4points = p4points + bank;
+        } else if (nump5right > nump1right && nump5right > nump2right && nump5right > nump3right && nump5right > nump4right) {
+            System.out.println("With " + nump5right + " questions right, " + p5name + "gets the points.");
+            p5points = p5points + bank;
+        } else {
+            System.out.println("There was a tie, so no one gets the points. Sorry.");
+        }
+        bank = 0;
+
+        System.out.println("");
+        voting();
+
+        System.out.println("The Round is over. You have " + p1points + " points.");
+
+    }
+
+    //------------------------------------------------FINAL ROUND----------------------------------------------------------------
+    public static void finalRound() {
+        int tries = 2;
+        boolean right = false;
+
+        String answer = "";
+
+        int nump1right = 0;
+        int nump2right = 0;
+        int nump3right = 0;
+        int nump4right = 0;
+        int nump5right = 0;
+
+        int p2right = 0;
+        int p3right = 0;
+        int p4right = 0;
+        int p5right = 0;
+
+        int a = gen.nextInt(50) + 1;
+        int b = gen.nextInt(50) + 1;
+        int c = gen.nextInt(50) + 1;
+        int d = gen.nextInt(50) + 1;
+        int e = gen.nextInt(50) + 1;
+
+        System.out.println("Welcome to the Final Round. Order of Operations. There are numbers up to 50.");
+        System.out.println("You will each have 5 questions. The Player with the most right will gain 200 bonus points.");
+        System.out.println("There is no Bank in this round, and you will only have two tries per question.");
+        System.out.println("The Player with the most points will be the victor!");
+
+        System.out.println(name + ", what is " + a + " plus " + d + " minus " + b + "?");
+        do {
+            answer = scan.nextLine();
+            if (Integer.parseInt(answer) == (a + d - b)) {
+                System.out.println("That is correct");
+                nump1right = nump1right + 1;
+                right = true;
+            } else if (Integer.parseInt(answer) != (a + d - b))  {
+                tries = tries - 1;
+                System.out.println("That is incorrect. You have " + tries + " tries remaining");
+            }
+
+        } while (tries > 0 && right == false);
+
+        //P2 Right?-------------------------------------------------
+
+        if (p2out == false) {
+            nump2right = checkAI(p2name, nump2right);
+        }
+
+        //P3 Right?--------------------------------------------
+        if (p3out == false) {
+            nump3right = checkAI(p3name, nump3right);
+        }
+
+        //P4 Right?----------------------------------------------
+        if (p4out == false) {
+            nump4right = checkAI(p4name, nump4right);
+        }
+
+        //P5 Right?------------------------------------------------
+        if (p5out == false) {
+            nump5right = checkAI(p5name, nump5right);
+        }
+
+        System.out.println("");
+
+        //-------------------------Q2--------------------
+        a = gen.nextInt(50) + 1;
+        b = gen.nextInt(50) + 1;
+        c = gen.nextInt(50) + 1;
+        d = gen.nextInt(50) + 1;
+        e = gen.nextInt(50) + 1;
+
+        System.out.println(name + ", what is " + c + " times " + e + " minus " + a + "?");
+
+        do {
+            answer = scan.nextLine();
+            if (Integer.parseInt(answer) == (c * e - a)) {
+                System.out.println("That is correct");
+                nump1right = nump1right + 1;
+                right = true;
+            } else if (Integer.parseInt(answer) != (c * e - a))  {
+                tries = tries - 1;
+                System.out.println("That is incorrect. You have " + tries + " tries remaining");
+            }
+
+        } while (tries > 1 && right == false);
+
+        //P2 Right?-------------------------------------------------
+
+        if (p2out == false) {
+            nump2right = checkAI(p2name, nump2right);
+        }
+
+        //P3 Right?--------------------------------------------
+        if (p3out == false) {
+            nump3right = checkAI(p3name, nump3right);
+        }
+
+        //P4 Right?----------------------------------------------
+        if (p4out == false) {
+            nump4right = checkAI(p4name, nump4right);
+        }
+
+        //P5 Right?------------------------------------------------
+        if (p5out == false) {
+            nump5right = checkAI(p5name, nump5right);
+        }
+
+        System.out.println("");
+
+        //---------------------Q3--------------------
+        a = gen.nextInt(50) + 1;
+        b = gen.nextInt(50) + 1;
+        c = gen.nextInt(50) + 1;
+        d = gen.nextInt(50) + 1;
+        e = gen.nextInt(50) + 1;
+
+        System.out.println(name + ", what is " + b + " minus " + e + " times " + c + "?");
+
+        do {
+            answer = scan.nextLine();
+            if (Integer.parseInt(answer) == (b - e * c)) {
+                System.out.println("That is correct");
+                nump1right = nump1right + 1;
+                right = true;
+            } else if (Integer.parseInt(answer) != (b - e * c))  {
+                tries = tries - 1;
+                System.out.println("That is incorrect. You have " + tries + " tries remaining");
+            }
+
+        } while (tries > 0 && right == false);
+        tries = 2;
+
+        //P2 Right?-------------------------------------------------
+
+        if (p2out == false) {
+            nump2right = checkAI(p2name, nump2right);
+        }
+
+        //P3 Right?--------------------------------------------
+        if (p3out == false) {
+            nump3right = checkAI(p3name, nump3right);
+        }
+
+        //P4 Right?----------------------------------------------
+        if (p4out == false) {
+            nump4right = checkAI(p4name, nump4right);
+        }
+
+        //P5 Right?------------------------------------------------
+        if (p5out == false) {
+            nump5right = checkAI(p5name, nump5right);
+        }
+
+        System.out.println("");
+
+        //---------------------Q4--------------------
+        a = gen.nextInt(50) + 1;
+        b = gen.nextInt(50) + 1;
+        c = gen.nextInt(50) + 1;
+        d = gen.nextInt(50) + 1;
+        e = gen.nextInt(50) + 1;
+
+        System.out.println(name + ", what is " + b + " plus " + a + " times " + d + " minus " + c + "?");
+
+        do {
+            answer = scan.nextLine();
+            if (Integer.parseInt(answer) == (b + a * d - c)) {
+                System.out.println("That is correct");
+                nump1right = nump1right + 1;
+                right = true;
+            } else if (Integer.parseInt(answer) != (b + a * d - c))  {
+                tries = tries - 1;
+                System.out.println("That is incorrect. You have " + tries + " tries remaining");
+            }
+
+        } while (tries > 0 && right == false);
+        tries = 2;
+
+        //P2 Right?-------------------------------------------------
+
+        if (p2out == false) {
+            nump2right = checkAI(p2name, nump2right);
+        }
+
+        //P3 Right?--------------------------------------------
+        if (p3out == false) {
+            nump3right = checkAI(p3name, nump3right);
+        }
+
+        //P4 Right?----------------------------------------------
+        if (p4out == false) {
+            nump4right = checkAI(p4name, nump4right);
+        }
+
+        //P5 Right?------------------------------------------------
+        if (p5out == false) {
+            nump5right = checkAI(p5name, nump5right);
+        }
+
+        System.out.println("");
+
+        //---------------------Q5--------------------
+        a = gen.nextInt(50) + 1;
+        b = gen.nextInt(50) + 1;
+        c = gen.nextInt(50) + 1;
+        d = gen.nextInt(50) + 1;
+        e = gen.nextInt(50) + 1;
+
+        System.out.println(name + ", what is " + b + " minus " + a + " plus " + d + " times " + c + " minus " + e + "?");
+
+        do {
+            answer = scan.nextLine();
+            if (Integer.parseInt(answer) == (b - a + d * c - e)) {
+                System.out.println("That is correct");
+                nump1right = nump1right + 1;
+                right = true;
+            } else if (Integer.parseInt(answer) != (b - a + d * c - e))  {
+                tries = tries - 1;
+                System.out.println("That is incorrect. You have " + tries + " tries remaining");
+            }
+
+        } while (tries > 0 && right == false);
+        tries = 2;
+
+        //P2 Right?-------------------------------------------------
+
+        if (p2out == false) {
+            nump2right = checkAI(p2name, nump2right);
+        }
+
+        //P3 Right?--------------------------------------------
+        if (p3out == false) {
+            nump3right = checkAI(p3name, nump3right);
+        }
+
+        //P4 Right?----------------------------------------------
+        if (p4out == false) {
+            nump4right = checkAI(p4name, nump4right);
+        }
+
+        //P5 Right?------------------------------------------------
+        if (p5out == false) {
+            nump5right = checkAI(p5name, nump5right);
+        }
+
+        System.out.println("");
+
+        if (nump1right > nump2right && nump1right > nump3right && nump1right > nump4right && nump1right > nump5right) {
+            System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
+            p1points = p1points + 200;
+        } else if (nump2right > nump1right && nump2right > nump3right && nump2right > nump4right && nump2right > nump5right) {
+            System.out.println("With " + nump2right + " questions right, " + p2name + "gets the points.");
+            p2points = p2points + 200;
+        } else if (nump3right > nump1right && nump3right > nump2right && nump3right > nump4right && nump3right > nump5right) {
+            System.out.println("With " + nump3right + " questions right, " + p3name + "gets the points.");
+            p3points = p3points + 200;
+        } else if (nump4right > nump1right && nump4right > nump3right && nump4right > nump2right && nump4right > nump5right) {
+            System.out.println("With " + nump4right + " questions right, " + p4name + "gets the points.");
+            p4points = p4points + 200;
+        } else if (nump5right > nump1right && nump5right > nump2right && nump5right > nump3right && nump5right > nump4right) {
+            System.out.println("With " + nump5right + " questions right, " + p5name + "gets the points.");
+            p5points = p5points + 200;
+        } else {
+            System.out.println("There was a tie, so no one gets the points. Sorry.");
+        }
+
+    }
+
+    //----------------------------------------------------VOTING METHOD-----------------------------------------------------------------
+    public static void voting() {
+
+        String vote = " ";
+        int p2vote = 0;
+        int p3vote = 0;
+        int p4vote = 0;
+        int p5vote = 0;
+
+        int vote1 = 0;
+        int vote2 = 0;
+        int vote3 = 0;
+        int vote4 = 0;
+        int vote5 = 0;
+
+        boolean voted = false;
+        boolean p2voted = false;
+        boolean p3voted = false;
+        boolean p4voted = false;
+        boolean p5voted = false;
+
+        boolean sweetness = false;
+
+        System.out.println("The round is over. It's time to vote. Who do you vote to be out?");
+
+        do {
+            System.out.println("Type the respective player's number to vote them out. 2 for Player 2, etc.");
+            do {
+                vote = scan.nextLine();
+                if (Integer.parseInt(vote) == 2) {
+                    vote2 = vote2 + 1;
+                    voted = true;
+                } else if (Integer.parseInt(vote) == 3) {
+                    vote3 = vote3 + 1;
+                    voted = true;
+                } else if (Integer.parseInt(vote) == 4) {
+                    vote4 = vote4 + 1;
+                    voted = true;
+                } else if (Integer.parseInt(vote) == 5) {
+                    vote5 = vote5 + 1;
+                    voted = true;
+                } else {
+                    System.out.println("That is not a valid vote. Type 2, 3, 4, or 5 to vote for that player.");
+                }
+            } while (voted == false);
+
+            if (p2out == false) {
+                do {
+                    p2vote = gen.nextInt(5) + 1;
+                    if (p2vote == 1) {
+                        vote1 = vote1 + 1;
+                        p2voted = true;
+                    } else if (p2vote == 3) {
+                        vote3 = vote3 + 1;
+                        p2voted = true;
+                    } else if (p2vote == 4) {
+                        vote4 = vote4 + 1;
+                        p2voted = true;
+                    } else if (p2vote == 5) {
+                        vote5 = vote5 + 1;
+                        p2voted = true;
+                    } else {
+                        p2voted = false;
+                    }
+
+                } while (p2voted == false);
+            }
+
+            if (p3out == false) {
+                do {
+                    p3vote = gen.nextInt(5) + 1;
+                    if (p3vote == 1) {
+                        vote1 = vote1 + 1;
+                        p3voted = true;
+                    } else if (p2vote == 2) {
+                        vote2 = vote2 + 1;
+                        p3voted = true;
+                    } else if (p3vote == 4) {
+                        vote4 = vote4 + 1;
+                        p3voted = true;
+                    } else if (p3vote == 5) {
+                        vote5 = vote5 + 1;
+                        p3voted = true;
+                    } else {
+                        p3voted = false;
+                    }
+
+                } while (p3voted == false);
+            }
+
+            if (p4out == false) {
+                do {
+                    p4vote = gen.nextInt(5) + 1;
+                    if (p4vote == 1) {
+                        vote1 = vote1 + 1;
+                        p4voted = true;
+                    } else if (p4vote == 2) {
+                        vote2 = vote2 + 1;
+                        p4voted = true;
+                    } else if (p4vote == 3) {
+                        vote3 = vote3 + 1;
+                        p4voted = true;
+                    } else if (p4vote == 5) {
+                        vote5 = vote5 + 1;
+                        p4voted = true;
+                    } else {
+                        p4voted = false;
+                    }
+
+                } while (p4voted == false);
+            }
+
+            if (p4out == false) {
+                do {
+                    p5vote = gen.nextInt(5) + 1;
+                    if (p5vote == 1) {
+                        vote1 = vote1 + 1;
+                        p5voted = true;
+                    } else if (p5vote == 3) {
+                        vote3 = vote3 + 1;
+                        p5voted = true;
+                    } else if (p5vote == 4) {
+                        vote4 = vote4 + 1;
+                        p5voted = true;
+                    } else if (p5vote == 2) {
+                        vote2 = vote2 + 1;
+                        p5voted = true;
+                    } else {
+                        p5voted = false;
+                    }
+
+                } while (p5voted == false);
+            }
+
+            System.out.println(name + ", you have voted for Player " + vote + ".");
+            System.out.println("Player 2, " + p2name + ", voted for Player " + p2vote);
+            System.out.println("Player 3, " + p3name + ", voted for Player " + p3vote);
+            System.out.println("Player 4, " + p4name + ", voted for Player " + p4vote);
+            System.out.println("Player 5, " + p5name + ", voted for Player " + p5vote);
+            System.out.println("");
+
+            if (vote1 > vote2 && vote1 > vote3 && vote1 > vote4 && vote1 > vote5) {
+                System.out.println(name + ", you are the Weakest Link. You have been voted out. Game Over");
+                p1out = true;
+                sweetness = true;
+            } else if (vote2 > vote1 && vote2 > vote3 && vote2 > vote4 && vote2 > vote5) {
+                System.out.println("Player 2, " + p2name + ", is the Weakest Link. They are out.");
+                p2out = true;
+                sweetness = true;
+            } else if (vote3 > vote1 && vote3 > vote2 && vote3 > vote4 && vote3 > vote5) {
+                System.out.println("Player 3, " + p3name + ", is the Weakest Link. They are out.");
+                p3out = true;
+                sweetness = true;
+            } else if (vote4 > vote1 && vote4 > vote2 && vote4 > vote3 && vote4 > vote5) {
+                System.out.println("Player 4, " + p4name + ", is the Weakest Link. They are out.");
+                p4out = true;
+                sweetness = true;
+            } else if (vote5 > vote1 && vote5 > vote2 && vote5 > vote3 && vote5 > vote4) {
+                System.out.println("Player 5, " + p5name + ", is the Weakest Link. They are out.");
+                p5out = true;
+                sweetness = true;
+            } else {
+                System.out.println("There was a tie. Please vote again.");
+            }
+
+        } while (sweetness == false);
+    }
+
+    //-------------------------------AI CHECKING------------------------------------------------------------------------
+    public static Integer checkAI(String playerName, Integer numRight) {
+        int isRight = gen.nextInt(2);
+        if (isRight == 0) {
+            System.out.println(playerName + " got the question wrong.");
+            pointsPossible = 10;
+        } else {
+            System.out.println(playerName + " got the question right!");
+            pointsPossible = pointsPossible + 10;
+            numRight = numRight + 1;
+        }
+        return numRight;
+    }
+}
