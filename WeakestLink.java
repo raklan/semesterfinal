@@ -52,7 +52,7 @@ public class WeakestLink {
         System.out.println("");
 
         if (p1out == false) {
-            System.out.println("Round one: Addition. You will have numbers up to 1000");
+            System.out.println("Round one: Addition. You will have numbers up to 100");
             round1();
         }
         if (p1out == false) {
@@ -98,22 +98,11 @@ public class WeakestLink {
 
     public static void round1() {
 
+        String answer = "";
         int tries = 3;
-
         int bank = 0;
 
-        int vote1 = 0;
-        int vote2 = 0;
-        int vote3 = 0;
-        int vote4 = 0;
-        int vote5 = 0;
-
-        boolean voted = false;
-
-        int p2right = 0;
-        int p3right = 0;
-        int p4right = 0;
-        int p5right = 0;
+        pointsPossible = 10;
 
         int nump1right = 0;
         int nump2right = 0;
@@ -121,43 +110,40 @@ public class WeakestLink {
         int nump4right = 0;
         int nump5right = 0;
 
-        int pointsPossible = 10;
+        int p2right = 0;
+        int p3right = 0;
+        int p4right = 0;
+        int p5right = 0;
 
-        System.out.println("");
-
-        String answer = "";
         boolean right = false;
         do {
-
+            int x = gen.nextInt(100) + 1;
+            int y = gen.nextInt(100) + 1;
+            System.out.println(name + ", what is " + x + " plus " + y + "?");
+            System.out.println("(Or type 'Bank' to bank the possible points.)");
             do {
-                int x = gen.nextInt(100) + 1;
-                int y = gen.nextInt(100) + 1;
-                System.out.println("What is " + x + " plus " + y + "?");
-                System.out.println("(Or type 'Bank' to bank the possible points.)");
                 answer = scan.nextLine();
-
                 if (answer.equalsIgnoreCase("bank")) {
                     bank = bank + pointsPossible;
                     System.out.println("The Bank is now worth " + bank + " points. The possible points have been reset to 10. Please answer the question now.");
                     answer = scan.nextLine();
                     pointsPossible = 10;
                 }
-                if (Integer.parseInt(answer) == (x+y))
-                {
-                    System.out.println("That is correct.");
-                    nump1right = nump1right + 1;
+                if (Integer.parseInt(answer) == x + y) {
+                    System.out.println("That is correct");
                     pointsPossible = pointsPossible + 10;
-                }
-                else if (Integer.parseInt(answer) != x + y) {
+                    nump1right = nump1right + 1;
+                    right = true;
+                } else if (Integer.parseInt(answer) != x + y)  {
                     tries = tries - 1;
-                    System.out.println("That is incorrect. You have " + tries + " remaining");
+                    System.out.println("That is incorrect. You have " + tries + " tries remaining");
                 }
 
             } while (tries > 0 && right == false);
-
             if (tries == 0) {
                 pointsPossible = 10;
             }
+            tries = 3;
 
             //P2 Right?-------------------------------------------------
 
@@ -181,8 +167,8 @@ public class WeakestLink {
             }
             counter = counter + 1;
             System.out.println("");
-
         } while (counter <= 3);
+
         if (nump1right > nump2right && nump1right > nump3right && nump1right > nump4right && nump1right > nump5right) {
             System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
             p1points = p1points + bank;
