@@ -56,13 +56,17 @@ public class WeakestLink {
             round1();
         }
         if (p1out == false) {
-            System.out.println("Round Two: Multiplacation. You will have numbers up to 100.");
+            System.out.println("");
+            System.out.println("Round Two: Subtraction. You will have numbers up to 100.");
             round2();
         }
         if (p1out == false) {
-            System.out.println("Round Three: Exponents. You will have numbers up to 10.");
+            System.out.println("");
+            System.out.println("Round Three: Multiplacation. You will have numbers up to 100.");
+            round3();
         }
         if (p1out == false) {
+            System.out.println("");
             System.out.println("Final Round. Are you ready? Y/N");
             answer = scan.nextLine();
             if (answer.equalsIgnoreCase("Y") || answer.equalsIgnoreCase("Yes")) {
@@ -79,13 +83,13 @@ public class WeakestLink {
         if (p1out == false && p1points > p2points && p1points > p3points && p1points > p4points && p1points > p5points) {
             System.out.println("The Game is over. You have won with " + p1points + " points. You are the Strongest Link.");
         } else if (p1out == false && p2points > p1points && p2points > p3points && p2points > p4points && p2points > p5points) {
-            System.out.println("The Game is over. With " + p2points + " points, " + p2name + "is the Strongest Link.");
+            System.out.println("The Game is over. With " + p2points + " points, " + p2name + " is the Strongest Link.");
         } else if (p1out == false && p3points > p1points && p3points > p2points && p3points > p4points && p3points > p5points) {
-            System.out.println("The Game is over. With " + p3points + " points, " + p3name + "is the Strongest Link.");
+            System.out.println("The Game is over. With " + p3points + " points, " + p3name + " is the Strongest Link.");
         } else if (p1out == false && p4points > p1points && p4points > p3points && p4points > p2points && p4points > p5points) {
-            System.out.println("The Game is over. With " + p4points + " points, " + p4name + "is the Strongest Link.");
+            System.out.println("The Game is over. With " + p4points + " points, " + p4name + " is the Strongest Link.");
         } else if (p1out == false && p5points > p1points && p5points > p3points && p5points > p4points && p5points > p2points) {
-            System.out.println("The Game is over. With " + p5points + " points, " + p5name + "is the Strongest Link.");
+            System.out.println("The Game is over. With " + p5points + " points, " + p5name + " is the Strongest Link.");
         }
 
         if (p1out == true) {
@@ -97,7 +101,7 @@ public class WeakestLink {
     //-----------------------------ROUND 1------------------------------------------------
 
     public static void round1() {
-
+        counter = 1;
         String answer = "";
         int tries = 3;
         int bank = 0;
@@ -197,6 +201,109 @@ public class WeakestLink {
 
     //----------------------------ROUND 2-------------------------------------------------------
     public static void round2() {
+        counter = 1;
+        String answer = "";
+        int tries = 3;
+        int bank = 0;
+
+        pointsPossible = 10;
+
+        int nump1right = 0;
+        int nump2right = 0;
+        int nump3right = 0;
+        int nump4right = 0;
+        int nump5right = 0;
+
+        int p2right = 0;
+        int p3right = 0;
+        int p4right = 0;
+        int p5right = 0;
+
+        boolean right = false;
+        do {
+            int x = gen.nextInt(100) + 1;
+            int y = gen.nextInt(100) + 1;
+            System.out.println(name + ", what is " + x + " minus " + y + "?");
+            System.out.println("(Or type 'Bank' to bank the possible points.)");
+            do {
+                answer = scan.nextLine();
+                if (answer.equalsIgnoreCase("bank")) {
+                    bank = bank + pointsPossible;
+                    System.out.println("The Bank is now worth " + bank + " points. The possible points have been reset to 10. Please answer the question now.");
+                    answer = scan.nextLine();
+                    pointsPossible = 10;
+                }
+                if (Integer.parseInt(answer) == x - y) {
+                    System.out.println("That is correct");
+                    pointsPossible = pointsPossible + 10;
+                    nump1right = nump1right + 1;
+                    right = true;
+                } else if (Integer.parseInt(answer) != x - y)  {
+                    tries = tries - 1;
+                    System.out.println("That is incorrect. You have " + tries + " tries remaining");
+                }
+
+            } while (tries > 0 && right == false);
+            if (tries == 0) {
+                pointsPossible = 10;
+            }
+            tries = 3;
+
+            //P2 Right?-------------------------------------------------
+
+            if (p2out == false) {
+                nump2right = checkAI(p2name, nump2right);
+            }
+
+            //P3 Right?--------------------------------------------
+            if (p3out == false) {
+                nump3right = checkAI(p3name, nump3right);
+            }
+
+            //P4 Right?----------------------------------------------
+            if (p4out == false) {
+                nump4right = checkAI(p4name, nump4right);
+            }
+
+            //P5 Right?------------------------------------------------
+            if (p5out == false) {
+                nump5right = checkAI(p5name, nump5right);
+            }
+            counter = counter + 1;
+            System.out.println("");
+        } while (counter <= 3);
+
+        if (nump1right > nump2right && nump1right > nump3right && nump1right > nump4right && nump1right > nump5right) {
+            System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
+            p1points = p1points + bank;
+        } else if (nump2right > nump1right && nump2right > nump3right && nump2right > nump4right && nump2right > nump5right) {
+            System.out.println("With " + nump2right + " questions right, " + p2name + "gets the points.");
+            p2points = p2points + bank;
+        } else if (nump3right > nump1right && nump3right > nump2right && nump3right > nump4right && nump3right > nump5right) {
+            System.out.println("With " + nump3right + " questions right, " + p3name + "gets the points.");
+            p3points = p3points + bank;
+        } else if (nump4right > nump1right && nump4right > nump3right && nump4right > nump2right && nump4right > nump5right) {
+            System.out.println("With " + nump4right + " questions right, " + p4name + "gets the points.");
+            p4points = p4points + bank;
+        } else if (nump5right > nump1right && nump5right > nump2right && nump5right > nump3right && nump5right > nump4right) {
+            System.out.println("With " + nump5right + " questions right, " + p5name + "gets the points.");
+            p5points = p5points + bank;
+        } else {
+            System.out.println("There was a tie, so no one gets the points. Sorry.");
+        }
+        bank = 0;
+
+        System.out.println("");
+        voting();
+
+        System.out.println("The Round is over. You have " + p1points + " points.");
+
+    }
+
+    //-----------------------------------------------ROUND THREE---------------------------------------------------------
+    public static void round3()
+    {
+        counter = 1;
         String answer = "";
         int tries = 3;
         int bank = 0;
@@ -297,6 +404,7 @@ public class WeakestLink {
 
     //------------------------------------------------FINAL ROUND----------------------------------------------------------------
     public static void finalRound() {
+        counter = 1;
         int tries = 2;
         boolean right = false;
 
@@ -677,7 +785,7 @@ public class WeakestLink {
                 } while (p4voted == false);
             }
 
-            if (p4out == false) {
+            if (p5out == false) {
                 do {
                     p5vote = gen.nextInt(5) + 1;
                     if (p5vote == 1) {
