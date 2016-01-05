@@ -55,12 +55,15 @@ public class WeakestLink {
 
         System.out.println("Round one: Addition. You will have numbers up to 1000");
 
+        //---Call Round 1 Here
+
         if (p1out == false) {
             System.out.println("Round Two: Multiplacation. You will have numbers up to 100.");
             round2();
         }
         if (p1out == false) {
             System.out.println("Round Three: Exponents. You will have numbers up to 10.");
+            //---Call Round 3 Here
         }
         if (p1out == false) {
             System.out.println("Final Round. Are you ready? Y/N");
@@ -158,7 +161,7 @@ public class WeakestLink {
             p2right = gen.nextInt(2);
             if (p2right == 0) {
                 System.out.println(p2name + " got the question wrong.");
-                pointsPossible = 10;
+                pointsPossible = 10;                                            //---NOTE: LOOK AT MY AI ANSWERING! COPY THAT OVER!
             } else if (p2right == 1) {
                 System.out.println(p2name + " got the question right!");
                 pointsPossible = pointsPossible + 10;
@@ -171,7 +174,7 @@ public class WeakestLink {
             p3right = gen.nextInt(2);
             if (p3right == 0) {
                 System.out.println(p3name + " got the question wrong.");
-                pointsPossible = 10;
+                pointsPossible = 10;                                            //---NOTE: LOOK AT MY AI ANSWERING! COPY THAT OVER!
             } else if (p3right == 1) {
                 System.out.println(p3name + " got the question right!");
                 pointsPossible = pointsPossible + 10;
@@ -184,7 +187,7 @@ public class WeakestLink {
             p4right = gen.nextInt(2);
             if (p4right == 0) {
                 System.out.println(p4name + " got the question wrong.");
-                pointsPossible = 10;
+                pointsPossible = 10;                                            //---NOTE: LOOK AT MY AI ANSWERING! COPY THAT OVER!
             } else if (p4right == 1) {
                 System.out.println(p4name + " got the question right!");
                 pointsPossible = pointsPossible + 10;
@@ -197,7 +200,7 @@ public class WeakestLink {
             p5right = gen.nextInt(2);
             if (p5right == 0) {
                 System.out.println(p5name + " got the question wrong.");
-                pointsPossible = 10;
+                pointsPossible = 10;                                            //---NOTE: LOOK AT MY AI ANSWERING! COPY THAT OVER!
             } else if (p5right == 1) {
                 System.out.println(p5name + " got the question right!");
                 pointsPossible = pointsPossible + 10;
@@ -261,6 +264,8 @@ public class WeakestLink {
                 pointsPossible = 10;
             }
             tries = 3;
+
+            //---Check the bottom of the code to find the AI checking method and the Voting method.
 
             //P2 Right?-------------------------------------------------
 
