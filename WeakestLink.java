@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class WeakestLink {
 
-    static int p1points = 100;
+    static int p1points = 0;
     static int p2points = 0;
     static int p3points = 0;
     static int p4points = 0;
@@ -318,8 +318,7 @@ public class WeakestLink {
     }
 
     //-----------------------------------------------ROUND THREE---------------------------------------------------------
-    public static void round3()
-    {
+    public static void round3() {
         counter = 1;
         String answer = "";
         int tries = 3;
@@ -477,7 +476,7 @@ public class WeakestLink {
 
         } while (tries > 0 && right == false);
         tries = 2;
-        
+
         //P2 Right?-------------------------------------------------
 
         if (p2out == false) {
@@ -839,133 +838,167 @@ public class WeakestLink {
                 do {
                     p2vote = gen.nextInt(5) + 1;
                     if (p2vote == 1) {
-                        vote1 = vote1 + 1;
-                        p2voted = true;
+                        if (p1out == false) {
+                            vote1 = vote1 + 1;
+                            p2voted = true;
+                        }
                     } else if (p2vote == 3) {
-                        vote3 = vote3 + 1;
-                        p2voted = true;
+                        if (p3out == false) {
+                            vote3 = vote3 + 1;
+                            p2voted = true;
+                        }
                     } else if (p2vote == 4) {
-                        vote4 = vote4 + 1;
-                        p2voted = true;
+                        if (p4out == false) {
+                            vote4 = vote4 + 1;
+                            p2voted = true;
+                        }
                     } else if (p2vote == 5) {
-                        vote5 = vote5 + 1;
-                        p2voted = true;
-                    } else {
-                        p2voted = false;
+                        if (p5out == false) {
+                            vote5 = vote5 + 1;
+                            p2voted = true;
+                        }
                     }
-
                 } while (p2voted == false);
-            }
 
-            if (p3out == false) {
-                do {
-                    p3vote = gen.nextInt(5) + 1;
-                    if (p3vote == 1) {
-                        vote1 = vote1 + 1;
-                        p3voted = true;
-                    } else if (p2vote == 2) {
-                        vote2 = vote2 + 1;
-                        p3voted = true;
-                    } else if (p3vote == 4) {
-                        vote4 = vote4 + 1;
-                        p3voted = true;
-                    } else if (p3vote == 5) {
-                        vote5 = vote5 + 1;
-                        p3voted = true;
-                    } else {
-                        p3voted = false;
-                    }
+                if (p3out == false) {
+                    do {
+                        p3vote = gen.nextInt(5) + 1;
+                        if (p3vote == 1) {
+                            if (p1out == false) {
+                                vote1 = vote1 + 1;
+                                p3voted = true;
+                            }
+                        } else if (p2vote == 2) {
+                            if (p2out == false) {
+                                vote2 = vote2 + 1;
+                                p3voted = true;
+                            }
+                        } else if (p3vote == 4) {
+                            if (p4out == false) {
+                                vote4 = vote4 + 1;
+                                p3voted = true;
+                            }
+                        } else if (p3vote == 5) {
+                            if (p5out == false) {
+                                vote5 = vote5 + 1;
+                                p3voted = true;
+                            }
+                        } else {
+                            p3voted = false;
+                        }
 
-                } while (p3voted == false);
-            }
+                    } while (p3voted == false);
+                }
 
-            if (p4out == false) {
-                do {
-                    p4vote = gen.nextInt(5) + 1;
-                    if (p4vote == 1) {
-                        vote1 = vote1 + 1;
-                        p4voted = true;
-                    } else if (p4vote == 2) {
-                        vote2 = vote2 + 1;
-                        p4voted = true;
-                    } else if (p4vote == 3) {
-                        vote3 = vote3 + 1;
-                        p4voted = true;
-                    } else if (p4vote == 5) {
-                        vote5 = vote5 + 1;
-                        p4voted = true;
-                    } else {
-                        p4voted = false;
-                    }
+                if (p4out == false) {
+                    do {
+                        p4vote = gen.nextInt(5) + 1;
+                        if (p4vote == 1) {
+                            if (p1out == false) {
+                                vote1 = vote1 + 1;
+                                p4voted = true;
+                            }
+                        } else if (p4vote == 2) {
+                            if (p2out == false) {
+                                vote2 = vote2 + 1;
+                                p4voted = true;
+                            }
+                        } else if (p4vote == 3) {
+                            if (p3out == false) {
+                                vote3 = vote3 + 1;
+                                p4voted = true;
+                            }
+                        } else if (p4vote == 5) {
+                            if (p5out == false) {
+                                vote5 = vote5 + 1;
+                                p4voted = true;
+                            }
+                        } else {
+                            p4voted = false;
+                        }
 
-                } while (p4voted == false);
-            }
+                    } while (p4voted == false);
+                }
 
-            if (p5out == false) {
-                do {
-                    p5vote = gen.nextInt(5) + 1;
-                    if (p5vote == 1) {
-                        vote1 = vote1 + 1;
-                        p5voted = true;
-                    } else if (p5vote == 3) {
-                        vote3 = vote3 + 1;
-                        p5voted = true;
-                    } else if (p5vote == 4) {
-                        vote4 = vote4 + 1;
-                        p5voted = true;
-                    } else if (p5vote == 2) {
-                        vote2 = vote2 + 1;
-                        p5voted = true;
-                    } else {
-                        p5voted = false;
-                    }
+                if (p5out == false) {
+                    do {
+                        p5vote = gen.nextInt(5) + 1;
+                        if (p5vote == 1) {
+                            if (p1out == false) {
+                                vote1 = vote1 + 1;
+                                p5voted = true;
+                            }
+                        } else if (p5vote == 3) {
+                            if (p3out == false) {
+                                vote3 = vote3 + 1;
+                                p5voted = true;
+                            }
+                        } else if (p5vote == 4) {
+                            if (p4out == false) {
+                                vote4 = vote4 + 1;
+                                p5voted = true;
+                            }
+                        } else if (p5vote == 2) {
+                            if (p2out == false) {
+                                vote2 = vote2 + 1;
+                                p5voted = true;
+                            }
+                        } else {
+                            p5voted = false;
+                        }
 
-                } while (p5voted == false);
-            }
+                    } while (p5voted == false);
+                }
 
-            System.out.println(name + ", you have voted for Player " + vote + ".");
-            if (p2out == false)
-            {
-                System.out.println("Player 2, " + p2name + ", voted for Player " + p2vote);
-            }
-            if (p3out == false)
-            {
-                System.out.println("Player 3, " + p3name + ", voted for Player " + p3vote);
-            }
-            if (p4out == false)
-            {
-                System.out.println("Player 4, " + p4name + ", voted for Player " + p4vote);
-            }
-            if (p5out == false)
-            {
-                System.out.println("Player 5, " + p5name + ", voted for Player " + p5vote);
-            }
-            System.out.println("");
+                System.out.println(name + ", you have voted for Player " + vote + ".");
 
-            if (vote1 > vote2 && vote1 > vote3 && vote1 > vote4 && vote1 > vote5) {
-                System.out.println(name + ", you are the Weakest Link. You have been voted out. Game Over");
-                p1out = true;
-                sweetness = true;
-            } else if (vote2 > vote1 && vote2 > vote3 && vote2 > vote4 && vote2 > vote5) {
-                System.out.println("Player 2, " + p2name + ", is the Weakest Link. They are out.");
-                p2out = true;
-                sweetness = true;
-            } else if (vote3 > vote1 && vote3 > vote2 && vote3 > vote4 && vote3 > vote5) {
-                System.out.println("Player 3, " + p3name + ", is the Weakest Link. They are out.");
-                p3out = true;
-                sweetness = true;
-            } else if (vote4 > vote1 && vote4 > vote2 && vote4 > vote3 && vote4 > vote5) {
-                System.out.println("Player 4, " + p4name + ", is the Weakest Link. They are out.");
-                p4out = true;
-                sweetness = true;
-            } else if (vote5 > vote1 && vote5 > vote2 && vote5 > vote3 && vote5 > vote4) {
-                System.out.println("Player 5, " + p5name + ", is the Weakest Link. They are out.");
-                p5out = true;
-                sweetness = true;
-            } else {
-                System.out.println("There was a tie. Please vote again.");
-            }
+                if (p2out == false) {
+                    System.out.println("Player 2, " + p2name + ", voted for Player " + p2vote);
+                }
 
+                System.out.println(name + ", you have voted for Player " + vote + ".");
+                if (p2out == false)
+                {
+                    System.out.println("Player 2, " + p2name + ", voted for Player " + p2vote);
+                }
+                if (p3out == false)
+                {
+                    System.out.println("Player 3, " + p3name + ", voted for Player " + p3vote);
+                }
+                if (p4out == false)
+                {
+                    System.out.println("Player 4, " + p4name + ", voted for Player " + p4vote);
+                }
+                if (p5out == false)
+                {
+                    System.out.println("Player 5, " + p5name + ", voted for Player " + p5vote);
+                }
+                System.out.println("");
+
+                if (vote1 > vote2 && vote1 > vote3 && vote1 > vote4 && vote1 > vote5) {
+                    System.out.println(name + ", you are the Weakest Link. You have been voted out. Game Over");
+                    p1out = true;
+                    sweetness = true;
+                } else if (vote2 > vote1 && vote2 > vote3 && vote2 > vote4 && vote2 > vote5) {
+                    System.out.println("Player 2, " + p2name + ", is the Weakest Link. They are out.");
+                    p2out = true;
+                    sweetness = true;
+                } else if (vote3 > vote1 && vote3 > vote2 && vote3 > vote4 && vote3 > vote5) {
+                    System.out.println("Player 3, " + p3name + ", is the Weakest Link. They are out.");
+                    p3out = true;
+                    sweetness = true;
+                } else if (vote4 > vote1 && vote4 > vote2 && vote4 > vote3 && vote4 > vote5) {
+                    System.out.println("Player 4, " + p4name + ", is the Weakest Link. They are out.");
+                    p4out = true;
+                    sweetness = true;
+                } else if (vote5 > vote1 && vote5 > vote2 && vote5 > vote3 && vote5 > vote4) {
+                    System.out.println("Player 5, " + p5name + ", is the Weakest Link. They are out.");
+                    p5out = true;
+                    sweetness = true;
+                } else {
+                    System.out.println("There was a tie. Please vote again.");
+                }
+            }
         } while (sweetness == false);
     }
 
