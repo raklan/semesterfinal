@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class WeakestLink {
 
-    static int p1points = 0;
+    static int p1points = 100;
     static int p2points = 0;
     static int p3points = 0;
     static int p4points = 0;
@@ -47,7 +47,24 @@ public class WeakestLink {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Please enter your name:");
+        System.out.println("Or type 'help' for the instructions.");
         name = scan.nextLine();
+        if (name.equalsIgnoreCase("help"))
+        {
+            System.out.println("This is a Math Trivia Game.");
+            System.out.println("There are four rounds-Addition, Subtraction, Multiplacation, and the Final Round.");
+            System.out.println("In each of the first three rounds, you'll get three questions.");
+            System.out.println("You and four other players each answer a question based on the theme of the round.");
+            System.out.println("You can Bank the possible points with 'bank'");
+            System.out.println("The possible points go up by 10 with each correct answer given by a player.");
+            System.out.println("Whoever has the most correct answers at the end of the round gets the points.");
+            System.out.println("At this point, you vote for a player to be out.");
+            System.out.println("Whoever has the most votes against them is out");
+            System.out.println("Whoever has the most points at the end of the game wins!");
+            System.out.println("");
+            System.out.println("Now please enter your name.");
+            name = scan.nextLine();
+        }
         System.out.println("Welcome! Let's play The Weakest Link! You player 1.");
         System.out.println("");
 
@@ -433,8 +450,22 @@ public class WeakestLink {
         System.out.println("The Player with the most points will be the victor!");
 
         System.out.println(name + ", what is " + a + " plus " + d + " minus " + b + "?");
+        System.out.println("(Or type 'tries' to cash in 20 points for an extra try.)");
         do {
             answer = scan.nextLine();
+            if (answer.equalsIgnoreCase("tries") && p1points >= 50)
+            {
+                tries = tries + 1;
+                p1points = p1points - 20;
+                System.out.println("You now have " + tries + " tries. Please answer the question now.");
+                answer = scan.nextLine();
+            }
+            if (answer.equalsIgnoreCase("tries") && p1points < 50)
+            {
+                System.out.println("I'm sorry, you don't have enough points for that.");
+                System.out.println("You only have " + p1points + " points. Please answer the question.");
+                answer = scan.nextLine();
+            }
             if (Integer.parseInt(answer) == (a + d - b)) {
                 System.out.println("That is correct");
                 nump1right = nump1right + 1;
@@ -445,7 +476,8 @@ public class WeakestLink {
             }
 
         } while (tries > 0 && right == false);
-
+        tries = 2;
+        
         //P2 Right?-------------------------------------------------
 
         if (p2out == false) {
@@ -477,9 +509,23 @@ public class WeakestLink {
         e = gen.nextInt(50) + 1;
 
         System.out.println(name + ", what is " + c + " times " + e + " minus " + a + "?");
+        System.out.println("(Or type 'tries' to cash in 20 points for an extra try.)");
 
         do {
             answer = scan.nextLine();
+            if (answer.equalsIgnoreCase("tries") && p1points >= 50)
+            {
+                tries = tries + 1;
+                p1points = p1points - 20;
+                System.out.println("You now have " + tries + " tries. Please answer the question now.");
+                answer = scan.nextLine();
+            }
+            if (answer.equalsIgnoreCase("tries") && p1points < 50)
+            {
+                System.out.println("I'm sorry, you don't have enough points for that.");
+                System.out.println("You only have " + p1points + " points. Please answer the question.");
+                answer = scan.nextLine();
+            }
             if (Integer.parseInt(answer) == (c * e - a)) {
                 System.out.println("That is correct");
                 nump1right = nump1right + 1;
@@ -489,8 +535,8 @@ public class WeakestLink {
                 System.out.println("That is incorrect. You have " + tries + " tries remaining");
             }
 
-        } while (tries > 1 && right == false);
-
+        } while (tries > 0 && right == false);
+        tries = 2;
         //P2 Right?-------------------------------------------------
 
         if (p2out == false) {
@@ -522,9 +568,23 @@ public class WeakestLink {
         e = gen.nextInt(50) + 1;
 
         System.out.println(name + ", what is " + b + " minus " + e + " times " + c + "?");
+        System.out.println("(Or type 'tries' to cash in 20 points for an extra try.)");
 
         do {
             answer = scan.nextLine();
+            if (answer.equalsIgnoreCase("tries") && p1points >= 50)
+            {
+                tries = tries + 1;
+                p1points = p1points - 20;
+                System.out.println("You now have " + tries + " tries. Please answer the question now.");
+                answer = scan.nextLine();
+            }
+            if (answer.equalsIgnoreCase("tries") && p1points < 50)
+            {
+                System.out.println("I'm sorry, you don't have enough points for that.");
+                System.out.println("You only have " + p1points + " points. Please answer the question.");
+                answer = scan.nextLine();
+            }
             if (Integer.parseInt(answer) == (b - e * c)) {
                 System.out.println("That is correct");
                 nump1right = nump1right + 1;
@@ -568,9 +628,23 @@ public class WeakestLink {
         e = gen.nextInt(50) + 1;
 
         System.out.println(name + ", what is " + b + " plus " + a + " times " + d + " minus " + c + "?");
+        System.out.println("(Or type 'tries' to cash in 20 points for an extra try.)");
 
         do {
             answer = scan.nextLine();
+            if (answer.equalsIgnoreCase("tries") && p1points >= 50)
+            {
+                tries = tries + 1;
+                p1points = p1points - 20;
+                System.out.println("You now have " + tries + " tries. Please answer the question now.");
+                answer = scan.nextLine();
+            }
+            if (answer.equalsIgnoreCase("tries") && p1points < 50)
+            {
+                System.out.println("I'm sorry, you don't have enough points for that.");
+                System.out.println("You only have " + p1points + " points. Please answer the question.");
+                answer = scan.nextLine();
+            }
             if (Integer.parseInt(answer) == (b + a * d - c)) {
                 System.out.println("That is correct");
                 nump1right = nump1right + 1;
@@ -614,9 +688,23 @@ public class WeakestLink {
         e = gen.nextInt(50) + 1;
 
         System.out.println(name + ", what is " + b + " minus " + a + " plus " + d + " times " + c + " minus " + e + "?");
+        System.out.println("(Or type 'tries' to cash in 20 points for an extra try.)");
 
         do {
             answer = scan.nextLine();
+            if (answer.equalsIgnoreCase("tries") && p1points >= 50)
+            {
+                tries = tries + 1;
+                p1points = p1points - 20;
+                System.out.println("You now have " + tries + " tries. Please answer the question now.");
+                answer = scan.nextLine();
+            }
+            if (answer.equalsIgnoreCase("tries") && p1points < 50)
+            {
+                System.out.println("I'm sorry, you don't have enough points for that.");
+                System.out.println("You only have " + p1points + " points. Please answer the question.");
+                answer = scan.nextLine();
+            }
             if (Integer.parseInt(answer) == (b - a + d * c - e)) {
                 System.out.println("That is correct");
                 nump1right = nump1right + 1;
@@ -703,17 +791,45 @@ public class WeakestLink {
             do {
                 vote = scan.nextLine();
                 if (Integer.parseInt(vote) == 2) {
-                    vote2 = vote2 + 1;
-                    voted = true;
+                    if (p2out == false)
+                    {
+                        vote2 = vote2 + 1;
+                        voted = true;
+                    }
+                    else 
+                    {
+                        System.out.println("That player is already out. Please vote again.");
+                    }
                 } else if (Integer.parseInt(vote) == 3) {
-                    vote3 = vote3 + 1;
-                    voted = true;
+                    if (p3out == false)
+                    {
+                        vote3 = vote3 + 1;
+                        voted = true;
+                    }
+                    else 
+                    {
+                        System.out.println("That player is already out. Please vote again.");
+                    }
                 } else if (Integer.parseInt(vote) == 4) {
-                    vote4 = vote4 + 1;
-                    voted = true;
+                    if (p4out == false)
+                    {
+                        vote4 = vote4 + 1;
+                        voted = true;
+                    }
+                    else 
+                    {
+                        System.out.println("That player is already out. Please vote again.");
+                    }
                 } else if (Integer.parseInt(vote) == 5) {
-                    vote5 = vote5 + 1;
-                    voted = true;
+                    if (p5out == false)
+                    {
+                        vote5 = vote5 + 1;
+                        voted = true;
+                    }
+                    else 
+                    {
+                        System.out.println("That player is already out. Please vote again.");
+                    }
                 } else {
                     System.out.println("That is not a valid vote. Type 2, 3, 4, or 5 to vote for that player.");
                 }
@@ -808,10 +924,22 @@ public class WeakestLink {
             }
 
             System.out.println(name + ", you have voted for Player " + vote + ".");
-            System.out.println("Player 2, " + p2name + ", voted for Player " + p2vote);
-            System.out.println("Player 3, " + p3name + ", voted for Player " + p3vote);
-            System.out.println("Player 4, " + p4name + ", voted for Player " + p4vote);
-            System.out.println("Player 5, " + p5name + ", voted for Player " + p5vote);
+            if (p2out == false)
+            {
+                System.out.println("Player 2, " + p2name + ", voted for Player " + p2vote);
+            }
+            if (p3out == false)
+            {
+                System.out.println("Player 3, " + p3name + ", voted for Player " + p3vote);
+            }
+            if (p4out == false)
+            {
+                System.out.println("Player 4, " + p4name + ", voted for Player " + p4vote);
+            }
+            if (p5out == false)
+            {
+                System.out.println("Player 5, " + p5name + ", voted for Player " + p5vote);
+            }
             System.out.println("");
 
             if (vote1 > vote2 && vote1 > vote3 && vote1 > vote4 && vote1 > vote5) {
