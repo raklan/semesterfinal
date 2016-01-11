@@ -57,7 +57,7 @@ public class WeakestLink {
             System.out.println("You and four other players each answer a question based on the theme of the round.");
             System.out.println("You can Bank the possible points with 'bank'");
             System.out.println("The possible points go up by 10 with each correct answer given by a player.");
-            System.out.println("Whoever has the most correct answers at the end of the round gets the points.");
+            System.out.println("Whoever has the most correct answers at the end of the round gets the points in the Bank.");
             System.out.println("At this point, you vote for a player to be out.");
             System.out.println("Whoever has the most votes against them is out");
             System.out.println("Whoever has the most points at the end of the game wins!");
@@ -194,16 +194,16 @@ public class WeakestLink {
             System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
             p1points = p1points + bank;
         } else if (nump2right > nump1right && nump2right > nump3right && nump2right > nump4right && nump2right > nump5right) {
-            System.out.println("With " + nump2right + " questions right, " + p2name + "gets the points.");
+            System.out.println("With " + nump2right + " questions right, " + p2name + " gets the points.");
             p2points = p2points + bank;
         } else if (nump3right > nump1right && nump3right > nump2right && nump3right > nump4right && nump3right > nump5right) {
-            System.out.println("With " + nump3right + " questions right, " + p3name + "gets the points.");
+            System.out.println("With " + nump3right + " questions right, " + p3name + " gets the points.");
             p3points = p3points + bank;
         } else if (nump4right > nump1right && nump4right > nump3right && nump4right > nump2right && nump4right > nump5right) {
-            System.out.println("With " + nump4right + " questions right, " + p4name + "gets the points.");
+            System.out.println("With " + nump4right + " questions right, " + p4name + " gets the points.");
             p4points = p4points + bank;
         } else if (nump5right > nump1right && nump5right > nump2right && nump5right > nump3right && nump5right > nump4right) {
-            System.out.println("With " + nump5right + " questions right, " + p5name + "gets the points.");
+            System.out.println("With " + nump5right + " questions right, " + p5name + " gets the points.");
             p5points = p5points + bank;
         } else {
             System.out.println("There was a tie, so no one gets the points. Sorry.");
@@ -294,16 +294,16 @@ public class WeakestLink {
             System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
             p1points = p1points + bank;
         } else if (nump2right > nump1right && nump2right > nump3right && nump2right > nump4right && nump2right > nump5right) {
-            System.out.println("With " + nump2right + " questions right, " + p2name + "gets the points.");
+            System.out.println("With " + nump2right + " questions right, " + p2name + " gets the points.");
             p2points = p2points + bank;
         } else if (nump3right > nump1right && nump3right > nump2right && nump3right > nump4right && nump3right > nump5right) {
-            System.out.println("With " + nump3right + " questions right, " + p3name + "gets the points.");
+            System.out.println("With " + nump3right + " questions right, " + p3name + " gets the points.");
             p3points = p3points + bank;
         } else if (nump4right > nump1right && nump4right > nump3right && nump4right > nump2right && nump4right > nump5right) {
-            System.out.println("With " + nump4right + " questions right, " + p4name + "gets the points.");
+            System.out.println("With " + nump4right + " questions right, " + p4name + " gets the points.");
             p4points = p4points + bank;
         } else if (nump5right > nump1right && nump5right > nump2right && nump5right > nump3right && nump5right > nump4right) {
-            System.out.println("With " + nump5right + " questions right, " + p5name + "gets the points.");
+            System.out.println("With " + nump5right + " questions right, " + p5name + " gets the points.");
             p5points = p5points + bank;
         } else {
             System.out.println("There was a tie, so no one gets the points. Sorry.");
@@ -395,16 +395,16 @@ public class WeakestLink {
             System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
             p1points = p1points + bank;
         } else if (nump2right > nump1right && nump2right > nump3right && nump2right > nump4right && nump2right > nump5right) {
-            System.out.println("With " + nump2right + " questions right, " + p2name + "gets the points.");
+            System.out.println("With " + nump2right + " questions right, " + p2name + " gets the points.");
             p2points = p2points + bank;
         } else if (nump3right > nump1right && nump3right > nump2right && nump3right > nump4right && nump3right > nump5right) {
-            System.out.println("With " + nump3right + " questions right, " + p3name + "gets the points.");
+            System.out.println("With " + nump3right + " questions right, " + p3name + " gets the points.");
             p3points = p3points + bank;
         } else if (nump4right > nump1right && nump4right > nump3right && nump4right > nump2right && nump4right > nump5right) {
-            System.out.println("With " + nump4right + " questions right, " + p4name + "gets the points.");
+            System.out.println("With " + nump4right + " questions right, " + p4name + " gets the points.");
             p4points = p4points + bank;
         } else if (nump5right > nump1right && nump5right > nump2right && nump5right > nump3right && nump5right > nump4right) {
-            System.out.println("With " + nump5right + " questions right, " + p5name + "gets the points.");
+            System.out.println("With " + nump5right + " questions right, " + p5name + " gets the points.");
             p5points = p5points + bank;
         } else {
             System.out.println("There was a tie, so no one gets the points. Sorry.");
@@ -743,16 +743,16 @@ public class WeakestLink {
             System.out.println(name + ", with " + nump1right + " questions right, you had the most right. You get the points.");
             p1points = p1points + 200;
         } else if (nump2right > nump1right && nump2right > nump3right && nump2right > nump4right && nump2right > nump5right) {
-            System.out.println("With " + nump2right + " questions right, " + p2name + "gets the points.");
+            System.out.println("With " + nump2right + " questions right, " + p2name + " gets the points.");
             p2points = p2points + 200;
         } else if (nump3right > nump1right && nump3right > nump2right && nump3right > nump4right && nump3right > nump5right) {
-            System.out.println("With " + nump3right + " questions right, " + p3name + "gets the points.");
+            System.out.println("With " + nump3right + " questions right, " + p3name + " gets the points.");
             p3points = p3points + 200;
         } else if (nump4right > nump1right && nump4right > nump3right && nump4right > nump2right && nump4right > nump5right) {
-            System.out.println("With " + nump4right + " questions right, " + p4name + "gets the points.");
+            System.out.println("With " + nump4right + " questions right, " + p4name + " gets the points.");
             p4points = p4points + 200;
         } else if (nump5right > nump1right && nump5right > nump2right && nump5right > nump3right && nump5right > nump4right) {
-            System.out.println("With " + nump5right + " questions right, " + p5name + "gets the points.");
+            System.out.println("With " + nump5right + " questions right, " + p5name + " gets the points.");
             p5points = p5points + 200;
         } else {
             System.out.println("There was a tie, so no one gets the points. Sorry.");
@@ -948,12 +948,6 @@ public class WeakestLink {
                         }
 
                     } while (p5voted == false);
-                }
-
-                System.out.println(name + ", you have voted for Player " + vote + ".");
-
-                if (p2out == false) {
-                    System.out.println("Player 2, " + p2name + ", voted for Player " + p2vote);
                 }
 
                 System.out.println(name + ", you have voted for Player " + vote + ".");
