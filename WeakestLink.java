@@ -148,6 +148,7 @@ public class WeakestLink {
                 pointsPossible = 10;
             }
             tries = 3;
+            right = false;
 
             //P2 Right?-------------------------------------------------
 
@@ -248,6 +249,7 @@ public class WeakestLink {
                 pointsPossible = 10;
             }
             tries = 3;
+            right = false;
 
             //P2 Right?-------------------------------------------------
 
@@ -349,6 +351,7 @@ public class WeakestLink {
                 pointsPossible = 10;
             }
             tries = 3;
+            right = false;
 
             //P2 Right?-------------------------------------------------
 
@@ -489,6 +492,8 @@ public class WeakestLink {
             }
 
         } while (tries > 1 && right == false);
+        right = false;
+        tries = 2;
 
         //P2 Right?-------------------------------------------------
 
@@ -535,6 +540,7 @@ public class WeakestLink {
 
         } while (tries > 0 && right == false);
         tries = 2;
+        right = false;
 
         //P2 Right?-------------------------------------------------
 
@@ -581,6 +587,7 @@ public class WeakestLink {
 
         } while (tries > 0 && right == false);
         tries = 2;
+        right = false;
 
         //P2 Right?-------------------------------------------------
 
@@ -627,6 +634,7 @@ public class WeakestLink {
 
         } while (tries > 0 && right == false);
         tries = 2;
+        right = false;
 
         //P2 Right?-------------------------------------------------
 
