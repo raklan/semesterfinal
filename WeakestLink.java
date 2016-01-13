@@ -47,20 +47,27 @@ public class WeakestLink {
         Scanner scan = new Scanner(System.in);
         
         
-        System.out.println("Welcome to the...");
-        System.out.println("\\                / ___                    ___   ____  ____________");
-        System.out.println(" \\              / |        /\\     |  /  |     /           ||     ");
-        System.out.println("  \\            /  |       /  \\    | /   |    /____        ||     ");
-        System.out.println("   \\    /\\    /   |__    /____\\   |/    |__       \\       ||     ");
-        System.out.println("    \\  /  \\  /    |     /      \\  |\\    |          |      ||     ");
-        System.out.println("     \\/    \\/     |___ /        \\ | \\   |___  _____/      ||     ");
-        System.out.println("           |           _________    |\\     |     |  /  ");
-        System.out.println("           |              ||        | \\    |     | /   ");
-        System.out.println("           |              ||        |  \\   |     |/    ");
-        System.out.println("           |              ||        |   \\  |     |\\   ");
-        System.out.println("           |              ||        |    \\ |     | \\  ");
-        System.out.println("           |______    ____||____    |     \\|     |  \\ ");
+        System.out.println("Welcome to...");
+        System.out.println("                   __________              _____");
+        System.out.println("                       ||       |     |   |     ");
+        System.out.println("                       ||       |     |   |     ");
+        System.out.println("                       ||       |-----|   |---  ");
+        System.out.println("                       ||       |     |   |     ");
+        System.out.println("                       ||       |     |   |_____");
+        System.out.println("\\                / ____                   ___   ____  ____________");
+        System.out.println(" \\              / |         /\\     |  /  |     /           ||     ");
+        System.out.println("  \\            /  |        /  \\    | /   |    /____        ||     ");
+        System.out.println("   \\    /\\    /   |__     /____\\   |/    |__       \\       ||     ");
+        System.out.println("    \\  /  \\  /    |      /      \\  |\\    |          |      ||     ");
+        System.out.println("     \\/    \\/     |____ /        \\ | \\   |___  _____/      ||     ");
+        System.out.println("               |           _________    |\\     |     |  /  ");
+        System.out.println("               |              ||        | \\    |     | /   ");
+        System.out.println("               |              ||        |  \\   |     |/    ");
+        System.out.println("               |              ||        |   \\  |     |\\   ");
+        System.out.println("               |              ||        |    \\ |     | \\  ");
+        System.out.println("               |______    ____||____    |     \\|     |  \\ ");
 
+        System.out.println("");
         System.out.println("Please enter your name:");
         System.out.println("Or type 'help' for the instructions.");
         name = scan.nextLine();
