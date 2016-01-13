@@ -45,6 +45,21 @@ public class WeakestLink {
         String answer = "";
 
         Scanner scan = new Scanner(System.in);
+        
+        
+        System.out.println("Welcome to the...");
+        System.out.println("\\                / ___                    ___   ____  ____________");
+        System.out.println(" \\              / |        /\\     |  /  |     /           ||     ");
+        System.out.println("  \\            /  |       /  \\    | /   |    /____        ||     ");
+        System.out.println("   \\    /\\    /   |__    /____\\   |/    |__       \\       ||     ");
+        System.out.println("    \\  /  \\  /    |     /      \\  |\\    |          |      ||     ");
+        System.out.println("     \\/    \\/     |___ /        \\ | \\   |___  _____/      ||     ");
+        System.out.println("           |           _________    |\\     |     |  /  ");
+        System.out.println("           |              ||        | \\    |     | /   ");
+        System.out.println("           |              ||        |  \\   |     |/    ");
+        System.out.println("           |              ||        |   \\  |     |\\   ");
+        System.out.println("           |              ||        |    \\ |     | \\  ");
+        System.out.println("           |______    ____||____    |     \\|     |  \\ ");
 
         System.out.println("Please enter your name:");
         System.out.println("Or type 'help' for the instructions.");
@@ -152,12 +167,28 @@ public class WeakestLink {
                 }
                 if (Integer.parseInt(answer) == x + y) {
                     System.out.println("That is correct");
+                    System.out.println("               /");
+                    System.out.println("              /");
+                    System.out.println("             /");
+                    System.out.println("       \\    /");
+                    System.out.println("        \\  /");
+                    System.out.println("         \\/");
                     pointsPossible = pointsPossible + 10;
                     nump1right = nump1right + 1;
                     right = true;
                 } else if (Integer.parseInt(answer) != x + y)  {
                     tries = tries - 1;
-                    System.out.println("That is incorrect. You have " + tries + " tries remaining");
+                    System.out.println("That is incorrect.");
+                    System.out.println("\\       /");
+                    System.out.println(" \\     /");
+                    System.out.println("  \\   /");
+                    System.out.println("   \\ /");
+                    System.out.println("    X");
+                    System.out.println("   / \\");
+                    System.out.println("  /   \\");
+                    System.out.println(" /     \\");
+                    System.out.println("/       \\");
+                    System.out.println("You have " + tries + " tries remaining");
                 }
 
             } while (tries > 0 && right == false);
@@ -253,12 +284,28 @@ public class WeakestLink {
                 }
                 if (Integer.parseInt(answer) == x - y) {
                     System.out.println("That is correct");
+                    System.out.println("               /");
+                    System.out.println("              /");
+                    System.out.println("             /");
+                    System.out.println("       \\    /");
+                    System.out.println("        \\  /");
+                    System.out.println("         \\/");
                     pointsPossible = pointsPossible + 10;
                     nump1right = nump1right + 1;
                     right = true;
                 } else if (Integer.parseInt(answer) != x - y)  {
                     tries = tries - 1;
-                    System.out.println("That is incorrect. You have " + tries + " tries remaining");
+                    System.out.println("That is incorrect.");
+                    System.out.println("\\       /");
+                    System.out.println(" \\     /");
+                    System.out.println("  \\   /");
+                    System.out.println("   \\ /");
+                    System.out.println("    X");
+                    System.out.println("   / \\");
+                    System.out.println("  /   \\");
+                    System.out.println(" /     \\");
+                    System.out.println("/       \\");
+                    System.out.println("You have " + tries + " tries remaining");
                 }
 
             } while (tries > 0 && right == false);
@@ -355,12 +402,28 @@ public class WeakestLink {
                 }
                 if (Integer.parseInt(answer) == x * y) {
                     System.out.println("That is correct");
+                    System.out.println("               /");
+                    System.out.println("              /");
+                    System.out.println("             /");
+                    System.out.println("       \\    /");
+                    System.out.println("        \\  /");
+                    System.out.println("         \\/");
                     pointsPossible = pointsPossible + 10;
                     nump1right = nump1right + 1;
                     right = true;
                 } else if (Integer.parseInt(answer) != x * y)  {
                     tries = tries - 1;
-                    System.out.println("That is incorrect. You have " + tries + " tries remaining");
+                    System.out.println("That is incorrect.");
+                    System.out.println("\\       /");
+                    System.out.println(" \\     /");
+                    System.out.println("  \\   /");
+                    System.out.println("   \\ /");
+                    System.out.println("    X");
+                    System.out.println("   / \\");
+                    System.out.println("  /   \\");
+                    System.out.println(" /     \\");
+                    System.out.println("/       \\");
+                    System.out.println("You have " + tries + " tries remaining");
                 }
 
             } while (tries > 0 && right == false);
@@ -470,11 +533,27 @@ public class WeakestLink {
             }
             if (Integer.parseInt(answer) == (a + d - b)) {
                 System.out.println("That is correct");
+                System.out.println("               /");
+                System.out.println("              /");
+                System.out.println("             /");
+                System.out.println("       \\    /");
+                System.out.println("        \\  /");
+                System.out.println("         \\/");
                 nump1right = nump1right + 1;
                 right = true;
             } else if (Integer.parseInt(answer) != (a + d - b))  {
                 tries = tries - 1;
-                System.out.println("That is incorrect. You have " + tries + " tries remaining");
+                System.out.println("That is incorrect.");
+                System.out.println("\\       /");
+                System.out.println(" \\     /");
+                System.out.println("  \\   /");
+                System.out.println("   \\ /");
+                System.out.println("    X");
+                System.out.println("   / \\");
+                System.out.println("  /   \\");
+                System.out.println(" /     \\");
+                System.out.println("/       \\");
+                System.out.println("You have " + tries + " tries remaining");
             }
 
         } while (tries > 0 && right == false);
@@ -530,11 +609,27 @@ public class WeakestLink {
             }
             if (Integer.parseInt(answer) == (c * e - a)) {
                 System.out.println("That is correct");
+                System.out.println("               /");
+                System.out.println("              /");
+                System.out.println("             /");
+                System.out.println("       \\    /");
+                System.out.println("        \\  /");
+                System.out.println("         \\/");
                 nump1right = nump1right + 1;
                 right = true;
             } else if (Integer.parseInt(answer) != (c * e - a))  {
                 tries = tries - 1;
-                System.out.println("That is incorrect. You have " + tries + " tries remaining");
+                System.out.println("That is incorrect.");
+                System.out.println("\\       /");
+                System.out.println(" \\     /");
+                System.out.println("  \\   /");
+                System.out.println("   \\ /");
+                System.out.println("    X");
+                System.out.println("   / \\");
+                System.out.println("  /   \\");
+                System.out.println(" /     \\");
+                System.out.println("/       \\");
+                System.out.println("You have " + tries + " tries remaining");
             }
 
         } while (tries > 1 && right == false);
@@ -591,11 +686,27 @@ public class WeakestLink {
             }
             if (Integer.parseInt(answer) == (b - e * c)) {
                 System.out.println("That is correct");
+                System.out.println("               /");
+                System.out.println("              /");
+                System.out.println("             /");
+                System.out.println("       \\    /");
+                System.out.println("        \\  /");
+                System.out.println("         \\/");
                 nump1right = nump1right + 1;
                 right = true;
             } else if (Integer.parseInt(answer) != (b - e * c))  {
                 tries = tries - 1;
-                System.out.println("That is incorrect. You have " + tries + " tries remaining");
+                System.out.println("That is incorrect.");
+                System.out.println("\\       /");
+                System.out.println(" \\     /");
+                System.out.println("  \\   /");
+                System.out.println("   \\ /");
+                System.out.println("    X");
+                System.out.println("   / \\");
+                System.out.println("  /   \\");
+                System.out.println(" /     \\");
+                System.out.println("/       \\");
+                System.out.println("You have " + tries + " tries remaining");
             }
 
         } while (tries > 0 && right == false);
@@ -652,11 +763,27 @@ public class WeakestLink {
             }
             if (Integer.parseInt(answer) == (b + a * d - c)) {
                 System.out.println("That is correct");
+                System.out.println("               /");
+                System.out.println("              /");
+                System.out.println("             /");
+                System.out.println("       \\    /");
+                System.out.println("        \\  /");
+                System.out.println("         \\/");
                 nump1right = nump1right + 1;
                 right = true;
             } else if (Integer.parseInt(answer) != (b + a * d - c))  {
                 tries = tries - 1;
-                System.out.println("That is incorrect. You have " + tries + " tries remaining");
+                System.out.println("That is incorrect.");
+                System.out.println("\\       /");
+                System.out.println(" \\     /");
+                System.out.println("  \\   /");
+                System.out.println("   \\ /");
+                System.out.println("    X");
+                System.out.println("   / \\");
+                System.out.println("  /   \\");
+                System.out.println(" /     \\");
+                System.out.println("/       \\");
+                System.out.println("You have " + tries + " tries remaining");
             }
 
         } while (tries > 0 && right == false);
@@ -713,11 +840,27 @@ public class WeakestLink {
             }
             if (Integer.parseInt(answer) == (b - a + d * c - e)) {
                 System.out.println("That is correct");
+                System.out.println("               /");
+                System.out.println("              /");
+                System.out.println("             /");
+                System.out.println("       \\    /");
+                System.out.println("        \\  /");
+                System.out.println("         \\/");
                 nump1right = nump1right + 1;
                 right = true;
             } else if (Integer.parseInt(answer) != (b - a + d * c - e))  {
                 tries = tries - 1;
-                System.out.println("That is incorrect. You have " + tries + " tries remaining");
+                System.out.println("That is incorrect.");
+                System.out.println("\\       /");
+                System.out.println(" \\     /");
+                System.out.println("  \\   /");
+                System.out.println("   \\ /");
+                System.out.println("    X");
+                System.out.println("   / \\");
+                System.out.println("  /   \\");
+                System.out.println(" /     \\");
+                System.out.println("/       \\");
+                System.out.println("You have " + tries + " tries remaining");
             }
 
         } while (tries > 0 && right == false);
